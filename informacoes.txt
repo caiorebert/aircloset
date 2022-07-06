@@ -1,0 +1,18 @@
+# Dados do Projeto
+    * Laravel 8.0
+    * Banco de Dados Mysql
+    * PHP 7.0.3 / 8.0
+    * Javascript
+    * Jquery
+
+# Dados do FTP
+    Host - ftp://thiagoprogramando.com.br
+    Usuário - u860881213
+    Senha - Ts22082020#
+    Porta - 21
+
+# Git Hub
+
+
+# Objetivos
+    Cópiar a Plataforma Aircloset com melhores tecnologias, soluções e código limpo.
