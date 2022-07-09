@@ -1,0 +1,28 @@
+@media screen and (min-width:800px) {
+    .content {
+        position: relative;
+        width: 70vw;
+        font-family: 'Poppins', Sans-serif;
+        margin: auto;
+    }
+    .btn-outline-primary {
+        color: #2d4373 !important;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #2d4373 !important;
+    }
+
+    .btn-outline-danger {
+        color: #c23321 !important;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #c23321 !important;
+    }
+}
+
+.row {
+    /* display: block; */
+    /* width: 100% !important; */
+}
