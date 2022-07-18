@@ -23,8 +23,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-// window.axios = require('axios');
-
+window.axios = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'axios'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -17264,7 +17263,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
 /***/ }),
 
 /***/ "./resources/css/cadastro.css":
@@ -17276,8 +17274,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
-
-
 /***/ })
 
 /******/ 	});
