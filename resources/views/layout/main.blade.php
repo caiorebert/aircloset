@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirCloset | @yield('title')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('css')
 </head>
 <body>
-    <div id="container" class="container" style="min-width: 100% !important;">
-        @yield('content')
+    <div id="container" class="container pl-0 pr-0" style="max-width: 100% !important;">
+        <div classs="row header">
+            <div class="col-md-12 pl-0 pr-0">
+                @include('layout.head')
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-md-12">
+                @yield('content')
+            </div>
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
