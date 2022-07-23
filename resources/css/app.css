@@ -1,0 +1,8 @@
+:root {
+    --primary: #2d4373;
+    --danger: #c23321;
+}
+
+.btn .btn-primary2 {
+    background-color: #2d4373 !important;
+}
