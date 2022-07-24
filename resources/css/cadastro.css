@@ -10,6 +10,7 @@
     }
 
     .btn-outline-primary:hover {
+        color:white !important;
         background-color: #2d4373 !important;
     }
 
@@ -18,6 +19,7 @@
     }
 
     .btn-outline-danger:hover {
+        color:white !important;
         background-color: #c23321 !important;
     }
 }
