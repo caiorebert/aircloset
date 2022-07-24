@@ -1,39 +1,51 @@
-<style type="text/css">
-    header {
-        position: relative;
-        height: 8vh;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
-    }
-    header .row {
-        position: relative;
-        margin: 0px !important;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        height: 100% !important;
-    }
-    header * {
-        height: 100%;
-    }
-    header .input-pesquisa {
-        position: absolute;
-        margin:auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 80%;
-    }
-    header .lista-opcoes {
-        position: relative;
-        
-    }
-    header .lista-opcoes li {
-        color: black;
-        display: inline-block;
-    }
-</style>
 <header>
-    <div class="row">
+    <div class="row mobile">
+        <div class="col-md-6 pr-0 pl-0">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
+                    </td>
+                    <td style="width:80%; text-align:right;">
+                        <a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="collapse menu" id="collapseMenu">
+                            <hr>
+                            <ul>
+                                <li>
+                                    Mensagens
+                                    <i class="fas fa-comment"></i>
+                                </li>
+                                <li>
+                                    Perfil
+                                    <i class="fas fa-user"></i>
+                                </li>
+                                <li>
+                                    Carrinho
+                                    <i class="fas fa-shopping-cart"></i>
+                                </li>
+                                <li>
+                                    Logout
+                                    <i class="fas fa-sign-out"></i>
+                                </li>
+                                <li data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu" id="close-menu">
+                                    Fechar
+                                    <i class="fas fa-times"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row desktop">
         <div class="col-md-2 text-center">
             <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
         </div>
@@ -60,7 +72,22 @@
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </div>
+                <div class="col-md-3 button-close d-none">
+                    <button class="btn btn-primary" id="close-menu">X</button>
+                </div>
             </div>
         </div>
     </div>
 </header>
+<script>
+    $(function(){
+        $("#collapse-menu").click(function(){
+            $(".menu").toggleClass("expanded");
+            $(".menu .button-close").toggleClass("d-none");
+        });
+        $("#close-menu").click(function(){
+            $(".menu").toggleClass("expanded");
+            $(".menu .button-close").toggleClass("d-none");
+        });
+    });
+</script>

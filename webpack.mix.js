@@ -21,3 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
 mix.postCss('resources/css/cadastro.css', 'public/css', [
         //
     ]);
+
+mix.postCss('resources/css/head.css', 'public/css', [
+    //
+]);
