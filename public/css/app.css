@@ -1,3 +1,5 @@
+@import url('head.css');
+
 :root {
     --primary: #2d4373;
     --danger: #c23321;
