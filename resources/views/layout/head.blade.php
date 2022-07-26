@@ -78,9 +78,25 @@
                 </div>
             </div>
         </div>
+        @else   
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6" style="text-align:right;">
+                    <a class="btn btn-secondary" style="height:auto;">
+                        CADASTRE-SE
+                    </a>
+                </div>
+                <div class="col-md-6" style="text-align:left;" data-toggle="modal" data-target="#modalLogin">
+                    <a class="btn btn-primary" style="height:auto;">
+                        ENTRAR
+                    </a>
+                </div>
+            </div>
+        </div>
         @endif
     </div>
 </header>
+@include('login.partials.modal_login')
 <script>
     $(function(){
         $("#collapse-menu").click(function(){
