@@ -52,6 +52,7 @@
         <div class="col-md-6">
             <input class="input-pesquisa form-control" type="text" name="search" placeholder="Busque por produtos, marcas..."/>
         </div>
+        @if(auth()->check())
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-3 text-center">
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </header>
 <script>
