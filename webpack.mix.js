@@ -25,3 +25,7 @@ mix.postCss('resources/css/cadastro.css', 'public/css', [
 mix.postCss('resources/css/head.css', 'public/css', [
     //
 ]);
+
+mix.postCss('resources/css/franqueado.css', 'public/css', [
+    //
+]);

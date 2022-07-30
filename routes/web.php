@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('/')->group(function(){
+    Route::get('/seja-franqueado', [IndexController::class, 'index_franqueado'])->name("seja_franqueado");
+    Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrar_franqueado'])->name("cadastrar-franqueado");
+});
+
 Route::prefix('/cadastro')->group(function(){
     Route::get('/', [CadastroController::class, 'index'])->name("cadastro");
 });

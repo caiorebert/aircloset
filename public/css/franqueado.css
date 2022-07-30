@@ -1,0 +1,15 @@
+body p {
+    font-size: 14px !important;
+}
+body .title {
+    color: #5b5855;
+    font-size: 34px;
+    font-family: 'Poppins', Sans-serif;
+    text-align: left;
+    margin: 0 0 20px 0;
+}
+body .sub-title {
+    color: #5b5855;
+    font-size: 21px;
+    font-family: 'Poppins', Sans-serif;
+}
