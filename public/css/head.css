@@ -1,3 +1,6 @@
+header {
+    background: rgba(245,245,245,.5);
+}
 @media screen and (min-width:800px) {
     header .desktop {
         /* display: inline-block;d */
@@ -8,7 +11,7 @@
     header {
         position: relative;
         height: 8vh;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
+        /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
     }
     header .row {
         position: relative;
@@ -42,7 +45,7 @@
 @media screen and (max-width:800px) {
     header .mobile {
         display: block;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
+        /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
         padding: 10px;
     }
     header .desktop {
@@ -70,6 +73,9 @@
         border-bottom: 1px solid rgb(0, 0, 0, 0.5);
     }
 }
+header {
+    background: rgba(245,245,245,.5);
+}
 @media screen and (min-width:800px) {
     header .desktop {
         /* display: inline-block;d */
@@ -80,7 +86,7 @@
     header {
         position: relative;
         height: 8vh;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
+        /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
     }
     header .row {
         position: relative;
@@ -114,7 +120,7 @@
 @media screen and (max-width:800px) {
     header .mobile {
         display: block;
-        box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
+        /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
         padding: 10px;
     }
     header .desktop {

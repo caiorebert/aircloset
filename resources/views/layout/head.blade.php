@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{asset('css/head.css')}}"/>
 <header>
     <div class="row mobile">
         <div class="col-md-6 pr-0 pl-0">
