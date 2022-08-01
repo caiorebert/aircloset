@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index_franqueado(){
+    public function indexFranqueado(){
         return view("franqueado.index");
     }
 
-    public function cadastrar_franqueado(){
+    public function cadastrarFranqueado(){
         // return view("franqueado.index");
     }
 }
