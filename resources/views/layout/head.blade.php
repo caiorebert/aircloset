@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{asset('css/head.css')}}"/>
-<header>
+
     <div class="row mobile">
         <div class="col-md-6 pr-0 pl-0">
             <table width="100%">
@@ -11,7 +11,7 @@
                         <a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu">
                             <i class="fas fa-bars"></i>
                         </a>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        @else   
+        @else
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-6" style="text-align:right;">
@@ -96,7 +96,6 @@
         </div>
         @endif
     </div>
-</header>
 @include('login.partials.modal_login')
 <script>
     $(function(){
