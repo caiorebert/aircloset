@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::prefix('/')->group(function(){
     Route::get('/seja-franqueado', [IndexController::class, 'indexFranqueado'])->name("sejaFranqueado");
+    Route::get('/contato', [IndexController::class, 'contato'])->name("contato");
     Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrarFranqueado");
 });
 
