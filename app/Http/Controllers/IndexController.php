@@ -13,4 +13,8 @@ class IndexController extends Controller
     public function cadastrarFranqueado(){
         // return view("franqueado.index");
     }
+
+    public function contato(){
+        return view("modulo_cliente.contato");
+    }
 }
