@@ -23,7 +23,7 @@ Route::prefix('/')->group(function(){
     Route::get('/seja-franqueado', [IndexController::class, 'indexFranqueado'])->name("sejaFranqueado");
     Route::get('/contato', [IndexController::class, 'contato'])->name("contato");
     Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrarFranqueado");
-});
+}); 
 
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->name("atualizarDados");
