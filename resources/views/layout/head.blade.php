@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="{{asset('css/head.css')}}"/>
+<header>
 
     <div class="row mobile">
         <div class="col-md-6 pr-0 pl-0">
             <table width="100%">
                 <tr>
                     <td>
-                        <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
+                        <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png"/>
                     </td>
                     <td style="width:80%; text-align:right;">
                         <a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu">
@@ -48,7 +48,7 @@
     </div>
     <div class="row desktop">
         <div class="col-md-2 text-center">
-            <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
+            <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png"/>
         </div>
         <div class="col-md-6">
             <input class="input-pesquisa form-control" type="text" name="search" placeholder="Busque por produtos, marcas..."/>
@@ -96,6 +96,7 @@
         </div>
         @endif
     </div>
+</header>
 @include('login.partials.modal_login')
 <script>
     $(function(){
