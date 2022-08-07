@@ -15,21 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::prefix('/')->group(function(){
+    Route::get('/', [IndexController::class, 'index'])->name("index");
     Route::get('/seja-franqueado', [IndexController::class, 'indexFranqueado'])->name("seja-franqueado");
     Route::get('/contato', [IndexController::class, 'contato'])->name("contato");
+    Route::get('/cadastro', [CadastroController::class, 'index'])->name("cadastro");
     Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
-}); 
+    Route::get('/login', [LoginController::class, 'index'])->name("page_login");
+    Route::post('/login', [LoginController::class, 'logar'])->name("logar");
+    Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
+});
 
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->name("atualizarDados");
-});
-
-
-Route::prefix('/cadastro')->group(function(){
-    Route::get('/', [CadastroController::class, 'index'])->name("cadastro");
 });

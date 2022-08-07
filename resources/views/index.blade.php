@@ -5,16 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>AirCloset | </title>
+        <title>AirCloset | Início</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
+        @include('login.partials.modal_login')
         <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
             <div class="container">
                 <a href="#" class="navbar-brand"><h1>AIR <b>CLOSET</b></h1></a>
@@ -31,12 +32,21 @@
                         <li class="nav-item">
                             <a href="" class="nav-link text"><b>Seja um franqueado</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text"><b>Cadastre-se</b></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text"><b>Entrar</b></a>
-                        </li>
+                        @if(auth()->check())
+                            <li class="nav-item">
+                                <a href="" class="nav-link text">Olá, bem vindo <b>{{ explode(" ", auth()->user()->nome)[0] }}</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('deslogar') }}" class="nav-link text">Logout <i class="fas fa-logout"></i></a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="" class="nav-link text"><b>Cadastre-se</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="cursor:pointer;" data-toggle="modal" data-target="#modalLogin" class="nav-link text"><b>Entrar</b></a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
