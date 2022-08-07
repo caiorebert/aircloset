@@ -70,7 +70,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 text-center">
-                    <a class="btn btn-danger" style="height: auto;">
+                    <a class="btn btn-danger" href="{{ route('deslogar') }}" style="height: auto;">
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </div>
