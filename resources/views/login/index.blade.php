@@ -1,4 +1,7 @@
 @extends('layout.main')
+@section('title')
+    Login
+@endsection
 @section('content')
     <div class="content">
         <div class="row pt-5">

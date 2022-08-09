@@ -62,7 +62,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 text-center">
-                    <a class="btn btn-primary" style="height: auto;">
+                    <a class="btn btn-primary" href="{{ route('atualizarDados')}}" style="height: auto;">
                         <i class="fas fa-user"></i>
                     </a>
                     <a class="btn btn-primary" style="height: auto;">
