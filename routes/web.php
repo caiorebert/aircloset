@@ -22,10 +22,12 @@ Route::prefix('/')->group(function(){
     Route::get('/cadastro', [CadastroController::class, 'index'])->name("cadastro");
     Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
     Route::get('/login', [LoginController::class, 'index'])->name("page_login");
+    Route::get('/login', [LoginController::class, 'index'])->name("login");
     Route::post('/login', [LoginController::class, 'logar'])->name("logar");
     Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
 });
 
 Route::prefix('/user')->group(function(){
-    Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->name("atualizarDados");
+    Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
+    Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");
 });

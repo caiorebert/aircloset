@@ -10,7 +10,11 @@ class LoginController extends Controller
 {
     
     public function index(){
-        return view("login.index");
+        if (!Auth::check()) {
+            return view("login.index");
+        } else {
+            return redirect()->route('index');
+        }
     }
 
     public function logar(Request $request){
@@ -19,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password])){
             $request->session()->regenerate();
            
-            return redirect()->route('index');
+            return redirect()->back();
 
             // if (auth()->user()->nivel_acesso==1) {
             //     return redirect()->route('dashboard');
@@ -29,12 +33,12 @@ class LoginController extends Controller
             //     return redirect()->route('dashboard');
             // }
         } else {
-            return redirect()->route('index');
+            return redirect()->back();
         }
     }
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('index');
+        return redirect()->back();
     }
 }

@@ -43,17 +43,19 @@
                             <h6>Olá {{ explode(" ", $user->nome)[0] }}, altere seus dados:</h6>
                         </div>
                     </div>
-                    <form>
+                    <form id="form-atualizarDados">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ (isset($user->id)) ? $user->id : '' }}"/>
                         <div class="row pt-3">
                             <div class="col-md-12">
                                 <label>Telefone: <span style="color:red;">*</span></label>
-                                <input type="text" name="telefone" id="telefone" value="" style="width:50%;" class="form-control"/>
+                                <input type="text" name="telefone" id="telefone" value="{{ isset($user->telefone) ? $user->telefone : '' }}" style="width:50%;" class="form-control"/>
                             </div>
                         </div>
                         <div class="row pt-3">
                             <div class="col-md-12">
                                 <label>Celular: <span style="color:red;">*</span></label>
-                                <input type="text" name="celular" id="celular" value="" style="width:50%;" class="form-control"/>
+                                <input type="text" name="celular" id="celular" value="{{ isset($user->celular) ? $user->celular : '' }}" style="width:50%;" class="form-control"/>
                             </div>
                         </div>
                         <div class="row pt-3">
@@ -73,7 +75,7 @@
                                 <input type="submit" style="width:100%; font-size: 1em !important;" value="ALTERAR SENHA" class="btn btn-lg btn-primary"/>
                             </div>
                             <div class="col-md-3">
-                                <input type="submit" style="width:100%; font-size: 1em !important;" value="SALVAR" class="btn btn-lg btn-outline-primary"/>
+                                <button id="bt-salvar" type="submit" style="width:100%; font-size: 1em !important;" class="btn btn-lg btn-outline-primary">SALVAR</button>
                             </div>
                         </div>
                     </form>
@@ -145,6 +147,14 @@
 <script type="text/javascript">
     $(function(){
         $("#cpf").mask("000.000.000-00");
+        $("#bt-salvar").click(function(e){
+            var valores = $("#form-atualizarDados").serializeArray();
+            $(this).html(`CARREGANDO <div class="spinner-border text-primary" role="status"></div>`)
+            e.preventDefault();
+            $.post("{{ route('updateDados') }}", { _token: valores[0].value, values: valores }, function(response) {
+                $("#bt-salvar").text(`SALVAR`);
+            });
+        });
     });
 </script>
 @endsection

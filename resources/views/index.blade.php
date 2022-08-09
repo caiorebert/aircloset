@@ -34,7 +34,7 @@
                         </li>
                         @if(auth()->check())
                             <li class="nav-item">
-                                <a href="" class="nav-link text">Olá, bem vindo <b>{{ explode(" ", auth()->user()->nome)[0] }}</b></a>
+                                <a href="{{ route('atualizarDados') }}" class="nav-link text">Olá, bem vindo <b>{{ explode(" ", auth()->user()->nome)[0] }}</b></a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('deslogar') }}" class="nav-link text">Logout <i class="fas fa-logout"></i></a>
