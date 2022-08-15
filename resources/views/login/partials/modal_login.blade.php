@@ -23,11 +23,16 @@
           <div class="row">
               <div class="col-md-12">
                   <hr>
-                  <input class="form-control" type="text" name="email" placeholder="Login"/>
+                  <input class="form-control" type="text" name="login" placeholder="Login"/>
               </div>
               <div class="col-md-12">
                   <hr>
                   <input class="form-control" type="password" name="password" placeholder="Senha"/>
+                  @if ($errors->any())
+                    @if ($errors->get('error_login_msg'))
+                      <label class="text-danger">Login ou senha incorretos</label>
+                    @endif
+                  @endif
               </div>
           </div>
           <div class="row p-4">

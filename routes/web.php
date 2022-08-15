@@ -20,7 +20,8 @@ Route::prefix('/')->group(function(){
     Route::get('/seja-franqueado', [IndexController::class, 'indexFranqueado'])->name("seja-franqueado");
     Route::get('/contato', [IndexController::class, 'contato'])->name("contato");
     Route::get('/cadastro', [CadastroController::class, 'index'])->name("cadastro");
-    Route::post('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
+    Route::post('/cadastro', [CadastroController::class, 'cadastrar'])->name("cadastro");
+    Route::get('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
     Route::get('/login', [LoginController::class, 'index'])->name("page_login");
     Route::get('/login', [LoginController::class, 'index'])->name("login");
     Route::post('/login', [LoginController::class, 'logar'])->name("logar");

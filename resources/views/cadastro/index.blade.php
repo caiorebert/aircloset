@@ -26,44 +26,104 @@
                 <button class="btn btn-outline-primary" style="width:100%; border-color: #2d4373 !important;"><i class="fab fa-facebook-f mr-5"></i>Cadastrar com Facebook</button>
             </div>
         </div>
-        <div class="row pt-4 pb-4">
-            <div class="col-md-12">
-                <div class="input-group">
-                    <input class="form-control p-3 pt-4 pb-4" type="text" name="nome" required="true" placeholder="Nome Completo *">
+        <form action="{{ route('cadastro') }}" method="post">
+            @csrf
+            <div class="row pt-4 pb-4">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <input class="form-control {{ ($errors->get('nome')) ? 'border-danger' : '' }} p-3 pt-4 pb-4 " type="text" name="nome"  placeholder="Nome Completo *">
+                    </div>
+                    @if($errors->any())
+                        @if($errors->get('nome'))
+                            <label class="text-danger"><?=$errors->get('nome')[0]?></label>
+                        @endif
+                    @endif
                 </div>
             </div>
-        </div>
-        <div class="row pt-4 pb-4">
-            <div class="col-md-8">
-                <input class="form-control p-3 pt-4 pb-4" type="text" name="cpf" required="true" placeholder="CPF *" required="true">
+            <div class="row pt-4 pb-4">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <input class="form-control {{ ($errors->get('email')) ? 'border-danger' : '' }} p-3 pt-4 pb-4" type="text" name="email"  placeholder="Email *"/>
+                    </div>
+                    @if($errors->any())
+                        @if($errors->get('email'))
+                            <label class="text-danger"><?=$errors->get('email')[0]?></label>
+                        @endif
+                    @endif
+                </div>
             </div>
-            <div class="col-md-4">
-                <input class="form-control p-3 pt-4 pb-4" type="date" name="data" required="true" placeholder="DD/MM/AAAA" required="true">
+            <div class="row pt-4 pb-4">
+                <div class="col-md-7">
+                    <input id="cpf" class="form-control {{ ($errors->get('cpf')) ? 'border-danger' : '' }} p-3 pt-4 pb-4" type="text" name="cpf"  placeholder="CPF *"/>
+                    @if($errors->any())
+                        @if($errors->get('cpf'))
+                            <label class="text-danger"><?=$errors->get('cpf')[0]?></label>
+                        @endif
+                    @endif
+                </div>
+                <div class="col-md-5">
+                    <input class="form-control {{ ($errors->get('data')) ? 'border-danger' : '' }} p-3 pt-4 pb-4" type="date" name="data"  placeholder="Data de nascimento"/>
+                    @if($errors->any())
+                        @if($errors->get('data'))
+                            <label class="text-danger"><?=$errors->get('data')[0]?></label>
+                        @endif
+                    @endif
+                </div>
             </div>
-        </div>
-        <div class="row pt-4 pb-4">
-            <div class="col-md-4">
-                <input class="form-control" name="sexo" placeholder="Sexo *" type="text" required="true"/>
+            <div class="row pt-4 pb-4">
+                <div class="col-md-4">
+                    <select class="form-control {{ ($errors->get('sexo')) ? 'border-danger' : '' }}" name="sexo">
+                        <option value="">Sexo *</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outro</option>
+                    </select>
+                    @if($errors->any())
+                        @if($errors->get('sexo'))
+                            <label class="text-danger"><?=$errors->get('sexo')[0]?></label>
+                        @endif
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    <input id="celular" class="form-control {{ ($errors->get('celular')) ? 'border-danger' : '' }}" name="celular" placeholder="Celular *" type="text"/>
+                    @if($errors->any())
+                        @if($errors->get('celular'))
+                            <label class="text-danger"><?=$errors->get('celular')[0]?></label>
+                        @endif
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    <input id="telefone" class="form-control" name="telefone"  type="text" placeholder="Telefone"/>
+                </div>
             </div>
-            <div class="col-md-4">
-                <input class="form-control" name="celular" placeholder="Celular *" type="text" required="true"/>
+            <div class="row pt-4 pb-4">
+                <div class="col-md-6">
+                    <input class="form-control {{ ($errors->get('senha')) ? 'border-danger' : '' }}" name="senha" placeholder="Senha *" type="password"/>
+                    @if($errors->any())
+                        @if($errors->get('senha'))
+                            <label class="text-danger"><?=$errors->get('senha')[0]?></label>
+                        @endif
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control {{ ($errors->get('confirma_senha')) ? 'border-danger' : '' }}" name="confirma_senha" placeholder="Repita a senha *" type="password"/>
+                    @if($errors->any())
+                        @if($errors->get('confirma_senha'))
+                            <label class="text-danger"><?=$errors->get('confirma_senha')[0]?></label>
+                        @endif
+                    @endif
+                </div>
             </div>
-            <div class="col-md-4">
-                <input class="form-control" name="telefone"  type="text" placeholder="Telefone"/>
-            </div>
-        </div>
-        <div class="row pt-4 pb-4">
-            <div class="col-md-6">
-                <input class="form-control" name="senha" placeholder="Senha *" type="text" required="true"/>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" name="confirma_senha" palceholder="Repita a senha *" type="text" required="true"/>
-            </div>
-        </div>
         <div class="row pt-4 pb-4">
             <div class="col-md-12">
                 <input class="form-input-check" type="checkbox" name="termos"/>
                 <label>Li e aceito os <b>termos de uso</b> e as <b>políticas de privacidade</b></label>
+                @if($errors->any())
+                    @if($errors->get('termos'))
+                        <br>
+                        <label class="text-danger"><?=$errors->get('termos')[0]?></label>
+                    @endif
+                @endif
             </div>
             <div class="col-md-12">
                 <input class="form-input-check" type="checkbox" name="ofertas_e_descontos"/>
@@ -74,8 +134,18 @@
         </div>
         <div class="row pt-4 pb-4">
             <div class="col-md-12">
-                <button class="btn btn-primary disabled" style="width:100%;">CRIAR CONTA</button>
+                <input type="submit" name="submit" class="btn btn-primary" style="width:100%;" value="CRIAR CONTA"/>
             </div>
         </div>
+        </form>
     </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $(function(){
+        $("#cpf").mask("000.000.000-00");
+        $("#celular").mask("(00) 0 0000-0000");
+        $("#telefone").mask("0000-0000");
+    });
+</script>
 @endsection

@@ -18,11 +18,19 @@ class LoginController extends Controller
     }
 
     public function logar(Request $request){
-        $email = $request->input("email");
+        $request->validate([
+            'login' => 'required', 
+            'password' => 'required'
+        ],
+        [
+            'login.required' => 'O campo login precisa ser preenchido!',
+            'password.required' => 'O campo senha precisa ser preenchido!'
+        ]
+        );
+        $email = $request->input("login");
         $password = $request->input("password");
-        if (Auth::attempt(['email' => $email, 'password' => $password])){
+        if (Auth::attempt(['login' => $email, 'password' => $password])){
             $request->session()->regenerate();
-           
             return redirect()->back();
 
             // if (auth()->user()->nivel_acesso==1) {
@@ -33,7 +41,7 @@ class LoginController extends Controller
             //     return redirect()->route('dashboard');
             // }
         } else {
-            return redirect()->back();
+            return redirect()->route('login')->withErrors(['error_login_msg' => "Login ou senha incorretos!"]);
         }
     }
 
