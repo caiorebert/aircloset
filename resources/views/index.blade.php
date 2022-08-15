@@ -41,7 +41,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="" class="nav-link text"><b>Cadastre-se</b></a>
+                                <a href="{{ route('cadastro') }}" class="nav-link text"><b>Cadastre-se</b></a>
                             </li>
                             <li class="nav-item">
                                 <a style="cursor:pointer;" data-toggle="modal" data-target="#modalLogin" class="nav-link text"><b>Entrar</b></a>

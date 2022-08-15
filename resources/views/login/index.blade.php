@@ -21,11 +21,24 @@
                 <div class="row">
                     <div class="col-md-12">
                         <hr>
-                        <input class="form-control" type="text" name="email" placeholder="Login"/>
+                        <input class="form-control {{ ($errors->get('login')) ? 'border-danger' : '' }}" type="text" name="login" placeholder="Login" />
+                        @if ($errors->any())
+                            @if($errors->get('login'))
+                                <label class="text-danger text-center" style="width:100%;"><?=$errors->get('login')[0] ?></label>
+                            @endif
+                        @endif
                     </div>
                     <div class="col-md-12">
                         <hr>
-                        <input class="form-control" type="password" name="password" placeholder="Senha"/>
+                        <input class="form-control {{ ($errors->get('password')) ? 'border-danger' : '' }}" type="password" name="password" placeholder="Senha" />
+                        @if ($errors->any())
+                            @if ($errors->get('password'))
+                                <label class="text-danger text-center" style="width:100%;"><?=$errors->get('password')[0] ?></label>
+                            @endif
+                            @if ($errors->get('error_login_msg'))
+                                <label class="text-danger text-center" style="width:100%;"><?=$errors->get('error_login_msg')[0] ?></label>
+                            @endif
+                        @endif
                     </div>
                 </div>
                 <div class="row p-4">
