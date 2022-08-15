@@ -72,10 +72,10 @@
                         </div>
                         <div class="row pt-3">
                             <div class="col-md-3">
-                                <input type="submit" style="width:100%; font-size: 1em !important;" value="ALTERAR SENHA" class="btn btn-lg btn-primary"/>
+                                <button style="width:100%; font-size: 1em !important;" class="btn btn-lg btn-primary">ALTERAR SENHA</button>
                             </div>
                             <div class="col-md-3">
-                                <button id="bt-salvar" type="submit" style="width:100%; font-size: 1em !important;" class="btn btn-lg btn-outline-primary">SALVAR</button>
+                                <button id="bt-salvar" style="width:100%; font-size: 1em !important;" class="btn btn-lg btn-outline-primary">SALVAR</button>
                             </div>
                         </div>
                     </form>
