@@ -15,7 +15,6 @@ class UserController extends Controller
 
     public function updateDados(Request $request){
         $id = auth()->user()->id;
-        $id = 1;
         $user = User::find($id);
         $inputs = $request->input('values');
         foreach ($inputs as $key => $value) {
