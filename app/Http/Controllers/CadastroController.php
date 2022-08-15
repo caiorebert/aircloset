@@ -37,7 +37,6 @@ class CadastroController extends Controller
             'sexo.required' => 'O campo sexo é obrigatório.',
             'termos.required' => 'É necessário marcar esse campo para prosseguir.'
         ]);
-        die(print_r($validated));
         $user->nome = $request->input('nome');
         $user->email = $request->input('email');
         if (!isset(User::where('email', $user->email)->get()[0])) {
