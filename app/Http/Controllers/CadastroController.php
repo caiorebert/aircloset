@@ -46,6 +46,7 @@ class CadastroController extends Controller
             $user->telefone = str_replace(['-', '.', '(', ')'], '', trim($request->input('telefone')));
             $user->celular = str_replace(['-', '.', '(', ')'], '', trim($request->input('celular')));
             $user->cpf = str_replace(['-', '.', '(', ')'], '', trim($request->input('cpf')));
+            $user->nivel_acesso = 1;
             if ($user->save()) {
                 if (Auth::loginUsingId($user->id)){
                     return redirect()->route('index');
