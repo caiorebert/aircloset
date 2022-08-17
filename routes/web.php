@@ -26,6 +26,7 @@ Route::prefix('/')->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name("login");
     Route::post('/login', [LoginController::class, 'logar'])->name("logar");
     Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
+    Route::post('/sendMessage', [IndexController::class, 'sendMessage'])->name("sendMessage");
 });
 
 Route::prefix('/user')->group(function(){

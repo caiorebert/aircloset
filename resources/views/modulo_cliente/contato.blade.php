@@ -1,6 +1,39 @@
 @extends('layout.main')
+@section('css')
+    <style>
+        .alerts {
+            position: absolute;
+            margin:auto;
+            padding-top:10px;
+            padding-right:10px;
+            right:10px;
+            font-size:1em;
+            height: 30vh;
+            z-index: 50;
+            width: 30vw;
+        }
+    </style>
+@endsection
 @section('content')
-<div class="content">
+    <div class="content">
+        <div class="alerts">
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <label>{{ $error }}</label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endforeach
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <label><?=session('success')['success'] ?></label>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
         <div class="row pt-5">
             <div class="col-md-2">
             </div>
@@ -24,26 +57,26 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <hr>
-                <form class="form" action="" method="post">
+                <form class="form" action="{{ route('sendMessage') }}" method="post">
                     @csrf
                     <div class="row p-3">
                         <div class="col-md-12">
-                            <input class="form-control" type="text" name="nome" required="true" style=" margin:auto;" placeholder="Nome *"/>
+                            <input class="form-control" type="text" name="nome"  style=" margin:auto;" placeholder="Nome *"/>
                         </div>
                     </div>
                     <div class="row p-3">
                         <div class="col-md-12">
-                            <input class="form-control" type="email" name="email" required="true" style=" margin:auto;" placeholder="Email *"/>
+                            <input class="form-control" type="email" name="email"  style=" margin:auto;" placeholder="Email *"/>
                         </div>
                     </div>
                     <div class="row p-3">
                         <div class="col-md-12">
-                            <input class="form-control" type="text" name="telefone" required="true" style=" margin:auto;" placeholder="Telefone *"/>
+                            <input class="form-control" type="text" name="telefone"  style=" margin:auto;" placeholder="Telefone *"/>
                         </div>
                     </div>
                     <div class="row p-3">
                         <div class="col-md-12">
-                            <textarea class="form-control" placeholder="Mensagem *" required="true"></textarea>
+                            <textarea class="form-control" name="mensagem" placeholder="Mensagem *" ></textarea>
                         </div>
                     </div>
                     <div class="row p-3">
