@@ -13,12 +13,36 @@
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <style>
+            footer {
+                background-color: black;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .container-fluid {
+                width: 94%;
+            }
+
+            .logotitulo {
+                writing-mode: vertical-rl;
+                font-size: 30px;
+                transform: rotate(180deg);
+            }
+
+            hr {
+                background-color: white;
+                height: 2px;
+                width: 50%;
+                margin-left: 0;
+            }
+        </style>
     </head>
     <body>
         @include('login.partials.modal_login')
         <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
             <div class="container">
-                <a href="#" class="navbar-brand"><h1>AIR <b>CLOSET</b></h1></a>
+                <a href="#" class="navbar-brand"><h1>AIR<b>CLOSET</b></h1></a>
                 <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" aria-controls="navbarnav" aria-expanded="false" aria-label="Toggle Navbar">
                     <span navbar-toggler-icon></span>
                 </button>
@@ -27,10 +51,10 @@
                     <div class="mx-auto"></div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link text"><b>Blog</b></a>
+                            <a href="https://blog.aircloset.com.br/" class="nav-link text"><b>Blog</b></a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text"><b>Seja um franqueado</b></a>
+                            <a href="seja-franqueado" class="nav-link text"><b>Seja um franqueado</b></a>
                         </li>
                         @if(auth()->check())
                             <li class="nav-item">
@@ -53,7 +77,7 @@
         </nav>
 
         <!-- Section Principal -->
-        <div style="background: url(https://bootstrapious.com/i/snippets/sn-static-header/background.jpg) no-repeat; background-size: cover;" class="jumbotron w-100 vh-100 d-flex justify-content-center bg-cover text-white">
+        <div id="principal" style="background-repeat: no-repeat; background-size: cover;" class="jumbotron w-100 vh-100 d-flex justify-content-center bg-cover text-white">
             <div style="margin-top: 10%;" class="container py-5 text-center">
                 <h1 class="display-4 font-weight-bold"> Alugue, economize e descomplique sua viagem. </h1>
                 <p class="font-bold mb-0"> Decida pelo aluguel de casacos e invista em uma nova forma de consumo sustentável. </p>
@@ -99,19 +123,19 @@
         </div>
 
         <!-- Seção 1 -->
-        <div style="background: url(https://bootstrapious.com/i/snippets/sn-static-header/background.jpg) no-repeat; background-size: cover; min-height: 300px;" class="jumbotron bg-cover text-white">
+        <div style="background: url(https://thiagoprogramando.com.br/nuvem_aircloset/viagem.jpg) no-repeat; background-size: cover; min-height: 500px;" class="jumbotron bg-cover text-dark">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6"></div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <h4 class="text-center">Apresentando <b>AIRCLOSET</b></h4>
-                    <p class="text-justify">A primeira plataforma de economia circular online de aluguel de casacos, botas e itens de viagem no Brasil. Possuímos loja física em Gramado-RS e Campos de Jordão-SP. Em breve estaremos em outras cidades do país. Nosso objetivo é revolucionar o universo da economia colaborativa no Brasil, a partir de um consumo inovador, consciente e sustentável.</p>
-                    <center><a class="btn btn-primary" href="">Saiba mais</a></center>
+                    <p class="text-justify text-bold">A primeira plataforma de economia circular online de aluguel de casacos, botas e itens de viagem no Brasil. Possuímos loja física em Gramado-RS e Campos de Jordão-SP. Em breve estaremos em outras cidades do país. Nosso objetivo é revolucionar o universo da economia colaborativa no Brasil, a partir de um consumo inovador, consciente e sustentável.</p>
+                    <center><a class="btn btn-primary p-2" href="">Saiba mais</a></center>
                 </div>
             </div>
         </div>
 
         <!-- Seção 2 -->
-        <div style="background: url(https://bootstrapious.com/i/snippets/sn-static-header/background.jpg) no-repeat; background-size: cover; min-height: 400px;" class="jumbotron bg-cover text-white container">
+        <div style="background: url(https://thiagoprogramando.com.br/nuvem_aircloset/reciclagem-aircloset.png) no-repeat; background-size: cover; min-height: 400px;" class="jumbotron bg-cover text-white container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <p>IMAGEM RECICLAGEM</p>
@@ -120,23 +144,30 @@
         </div>
 
         <!-- Seção 3 -->
-        <div style="width: 100%;" class="container">
+        <div style="width: 100%;" class="container p-5">
             <div class="row">
 
-                <div style="background: #F1F1F1;" class="col-sm-12 col-md-12 col-lg-12 text-dark p-5">
-                    <h4><b> ALUGUE & ARRASE </b></h4> <br>
-                    <p>
-                        Selecione o produto desejado e a cidade que irá se hospedar. Escolha o período de aluguel, o horário de retirada ou, se preferir, limpe as datas caso não tenha data confirmada e clique em buscar.Caso opte por apenas uma diária de cada peça, é necessário também limpar as datas. <br><br>
-                        Depois de escolher, clique no produto desejado. Escolha data e horário de retirada e devolução. Ao lado direito no mapa, visualize a loja de retirada. <br><br>
-                        Você receberá um voucher no e-mail cadastrado com todas as informações de horário, data e local de retirada. <br><br>
-                        Caso a loja possua opção de delivery, você receberá o produto no seu hotel e a devolução também é feita pela loja no mesmo local dentro do horário e data pré agendados no seu voucher no momento da reserva. O Delivery é pago separadamente através do WhatsApp. Ao concluir a compra, é só entrar em contato através do link que se encontra logo no fim da página, responder a opção de delivery, enviar o número do pedido e finalizar seu delivery. <br><br>
-                        Pronto! Agora é só arrasar!
-                    </p>
+                <div style="background: #F1F1F1;" class="col-sm-12 col-md-12 col-lg-12 text-dark row p-5">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <h4><b> ALUGUE & ARRASE </b></h4> <br>
+                        <p>Selecione o produto desejado e a cidade que irá se hospedar. Escolha o período de aluguel, o horário de retirada ou, se preferir, limpe as datas caso não tenha data confirmada e clique em buscar.Caso opte por apenas uma diária de cada peça, é necessário também limpar as datas. <br><br></p>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <img src="https://thiagoprogramando.com.br/nuvem_aircloset/alugue-arrase.png">
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            Depois de escolher, clique no produto desejado. Escolha data e horário de retirada e devolução. Ao lado direito no mapa, visualize a loja de retirada. <br><br>
+                            Você receberá um voucher no e-mail cadastrado com todas as informações de horário, data e local de retirada. <br><br>
+                            Caso a loja possua opção de delivery, você receberá o produto no seu hotel e a devolução também é feita pela loja no mesmo local dentro do horário e data pré agendados no seu voucher no momento da reserva. O Delivery é pago separadamente através do WhatsApp. Ao concluir a compra, é só entrar em contato através do link que se encontra logo no fim da página, responder a opção de delivery, enviar o número do pedido e finalizar seu delivery. <br><br>
+                            Pronto! Agora é só arrasar!
+                        </p>
+                    </div>
                 </div>
 
                 <div class="col-sm-12 col-md-12 col-lg-12 text-dark row mt-5">
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-
+                    <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                        <img src="https://thiagoprogramando.com.br/nuvem_aircloset/devolva.png">
                     </div>
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <h4><b>DEVOLVA</b></h4> <br>
@@ -145,9 +176,12 @@
                 </div>
 
                 <div style="background: #EAFFEB;" class="col-sm-12 col-md-12 col-lg-12 mt-5 text-dark p-5 row">
-                    <div class="col">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
                         <h4><b>ECONOMIZE & SEJA SUSTENTÁVEL</b></h4> <br><br>
                         <p>Compre apenas o essencial e contribua com o meio ambiente e com o futuro das próximas gerações.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                        <img src="https://thiagoprogramando.com.br/nuvem_aircloset/economize-sustentavel.png">
                     </div>
                 </div>
 
@@ -166,22 +200,22 @@
                 <div class="carousel-item active">
                     <img src="https://picsum.photos/1000/300" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 class="bg-dark p-1 text-white">First slide label</h3>
+                        <p class="bg-dark p-1 text-white">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="https://picsum.photos/1000/300" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 class="bg-dark p-1 text-white">First slide label</h3>
+                        <p class="bg-dark p-1 text-white">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="https://picsum.photos/1000/300" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 class="bg-dark p-1 text-white">First slide label</h3>
+                        <p class="bg-dark p-1 text-white">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </div>
                 </div>
             </div>
@@ -197,19 +231,66 @@
 
         <!-- Em Breve -->
         <div class="row p-5 mb-5">
-            <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div class="card p-5 text-center"><h4>SÃO PAULO - SP</h4></div>
+            <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 p-1">
+                <div style="background: url(https://viagemeturismo.abril.com.br/wp-content/uploads/2017/12/istock-842960000.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
+                    <h5 class="text-white bg-dark p-1">SÃO PAULO - SP</h5>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div class="card p-5 text-center"><h4>OLÍMPIA - SP</h4></div>
+                <div style="background: url(https://dsdsuzy1jtjfw.cloudfront.net/wp-content/uploads/2020/07/Hot-Beach-Ol%C3%ADmpia_02-1200x656.jpeg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
+                    <h5 class="text-white bg-dark p-1">OLÍMPIA - SP</h5>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div class="card p-5 text-center"><h4>PORTO ALEGRE - RS</h4></div>
+                <div style="background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/77000/77780-Porto-Alegre-And-Vicinity.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
+                    <h5 class="text-white bg-dark p-1">PORTO ALEGRE - RS</h5>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div class="card p-5 text-center"><h4>GOIÂNIA - GO</h4></div>
+                <div style="background: url(https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1280,h_720/https://www.goiania.go.gov.br/wp-content/uploads/2019/12/12.20.19GOIANIA_abrefecha.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
+                    <h5 class="text-white bg-dark p-1">GOIÂNIA - GO</h5>
+                </div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="text-white">
+            <div class="container-fluid pt-5 pb-5">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <h1 class="font-weight-bold mt-5 pt-2 logotitulo">AirCloset</h1>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4 class="font-weight-bold mb-3">Sobre</h4><hr>
+                        <p>Como alugar</p>
+                        <p>Seja um franqueado</p>
+                        <p>Contato</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4 class="font-weight-bold mb-3">Siga-nos</h4><hr>
+                        <p>Facebook</p>
+                        <p>Instagram</p>
+                        <p>WhatsApp</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4 class="font-weight-bold mb-3">Termos</h4><hr>
+                        <p>Termos de uso</p>
+                        <p>Termos de privacidade</p>
+                        <p>Mapa do site</p>
+                    </div>
+
+                    <div class="col-md-1">
+                        <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" width="100px">
+                        <h4 class="font-weight-bold" style="margin-top: 200px;">AirCloset</h4>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -225,6 +306,10 @@
                     $('#nav').removeClass('bg-dark');
                 }
             });
+            const rndInt = Math.floor(Math.random() * 4) + 1
+            var url = "https://thiagoprogramando.com.br/nuvem_aircloset/background/" + rndInt + '.jpg';
+            var div = document.getElementById("principal");
+            div.style.backgroundImage = `url(${url})`;
         </script>
     </body>
 </html>
