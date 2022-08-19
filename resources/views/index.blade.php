@@ -42,7 +42,7 @@
         @include('login.partials.modal_login')
         <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
             <div class="container">
-                <a href="#" class="navbar-brand"><h1>AIR<b>CLOSET</b></h1></a>
+                <a href="./" class="navbar-brand"><h1>AIR<b>CLOSET</b></h1></a>
                 <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" aria-controls="navbarnav" aria-expanded="false" aria-label="Toggle Navbar">
                     <span navbar-toggler-icon></span>
                 </button>
@@ -77,7 +77,7 @@
         </nav>
 
         <!-- Section Principal -->
-        <div id="principal" style="background-repeat: no-repeat; background-size: cover;" class="jumbotron w-100 vh-100 d-flex justify-content-center bg-cover text-white">
+        <div id="principal" style="background-repeat: no-repeat; background-size: cover;" class="jumbotron h-100 d-flex justify-content-center bg-cover text-white">
             <div style="margin-top: 10%;" class="container py-5 text-center">
                 <h1 class="display-4 font-weight-bold"> Alugue, economize e descomplique sua viagem. </h1>
                 <p class="font-bold mb-0"> Decida pelo aluguel de casacos e invista em uma nova forma de consumo sustentável. </p>
@@ -123,7 +123,7 @@
         </div>
 
         <!-- Seção 1 -->
-        <div style="background: url(https://thiagoprogramando.com.br/nuvem_aircloset/viagem.jpg) no-repeat; background-size: cover; min-height: 500px;" class="jumbotron bg-cover text-dark">
+        <div style="background: url(https://thiagoprogramando.com.br/nuvem_aircloset/viagem.jpg) no-repeat; background-size: cover; min-height: 500px;" class="jumbotron h-100 w-100 bg-cover text-dark">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6"></div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -135,24 +135,20 @@
         </div>
 
         <!-- Seção 2 -->
-        <div style="background: url(https://thiagoprogramando.com.br/nuvem_aircloset/reciclagem-aircloset.png) no-repeat; background-size: cover; min-height: 400px;" class="jumbotron bg-cover text-white container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <p>IMAGEM RECICLAGEM</p>
-                </div>
-            </div>
+        <div class="jumbotron v-100 w-100 text-white container d-flex justify-content-center">
+            <img style="width: 100%; height: 100%;" src="https://thiagoprogramando.com.br/nuvem_aircloset/reciclagem-aircloset.png">
         </div>
 
         <!-- Seção 3 -->
-        <div style="width: 100%;" class="container p-5">
+        <div class="container">
             <div class="row">
 
-                <div style="background: #F1F1F1;" class="col-sm-12 col-md-12 col-lg-12 text-dark row p-5">
-                    <div class="col-sm-12 col-md-8 col-lg-8">
+                <div style="background-color: #F1F1F1;" class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 text-dark row p-5">
+                    <div class="col-sm-12 col-md-9 col-lg-9">
                         <h4><b> ALUGUE & ARRASE </b></h4> <br>
                         <p>Selecione o produto desejado e a cidade que irá se hospedar. Escolha o período de aluguel, o horário de retirada ou, se preferir, limpe as datas caso não tenha data confirmada e clique em buscar.Caso opte por apenas uma diária de cada peça, é necessário também limpar as datas. <br><br></p>
                     </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="col-sm-12 col-md-3 col-lg-3 d-flex justify-content-center">
                         <img src="https://thiagoprogramando.com.br/nuvem_aircloset/alugue-arrase.png">
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -165,22 +161,22 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-12 col-lg-12 text-dark row mt-5">
-                    <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 text-dark row mt-5">
+                    <div class="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center">
                         <img src="https://thiagoprogramando.com.br/nuvem_aircloset/devolva.png">
                     </div>
-                    <div class="col-sm-12 col-md-8 col-lg-8">
+                    <div class="col-sm-12 col-md-8 col-lg-8 text-justify">
                         <h4><b>DEVOLVA</b></h4> <br>
                         <p> Ao término do período de aluguel, o produto deverá ser devolvido na loja em que foi retirado na data prevista do contrato. Caso tenha optado por delivery, a loja parceira recolherá o produto no seu hotel nas datas e horário pré agendados, podendo ser deixado na recepção do hotel para retirada. Passando por um controle de qualidade de higienização após a devolução, estará disponível novamente para a próxima locação. </p>
                     </div>
                 </div>
 
-                <div style="background: #EAFFEB;" class="col-sm-12 col-md-12 col-lg-12 mt-5 text-dark p-5 row">
+                <div style="background: #EAFFEB;" class="col-sm-12 col-md-12 col-lg-10 offset-lg-1 mt-5 text-dark p-5 row">
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <h4><b>ECONOMIZE & SEJA SUSTENTÁVEL</b></h4> <br><br>
                         <p>Compre apenas o essencial e contribua com o meio ambiente e com o futuro das próximas gerações.</p>
                     </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4 text-center">
+                    <div class="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center">
                         <img src="https://thiagoprogramando.com.br/nuvem_aircloset/economize-sustentavel.png">
                     </div>
                 </div>
@@ -189,12 +185,14 @@
         </div>
 
         <!-- divisão -->
-        <div class="m-5">
-            <hr>
+        <div class="m-5 row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <hr class="w-100">
+            </div>
         </div>
 
         <!-- Carrosel -->
-        <h1 class="text-center mb-5">Produtos e serviços que você encontra na <b>AirCloset</b></h1>
+        <h2 class="text-center mb-5">Produtos e serviços que você encontra na <b>AirCloset</b></h2>
         <div id="carouselExampleControls" class="carousel slide container mb-5" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -230,32 +228,34 @@
         </div>
 
         <!-- Em Breve -->
-        <div class="row p-5 mb-5">
-            <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div style="background: url(https://viagemeturismo.abril.com.br/wp-content/uploads/2017/12/istock-842960000.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
-                    <h5 class="text-white bg-dark p-1">SÃO PAULO - SP</h5>
+        <div class="container mb-5">
+            <div class="row">
+                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                    <div style="background: url(https://viagemeturismo.abril.com.br/wp-content/uploads/2017/12/istock-842960000.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
+                        <h5 class="text-white bg-dark p-1">SÃO PAULO - SP</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div style="background: url(https://dsdsuzy1jtjfw.cloudfront.net/wp-content/uploads/2020/07/Hot-Beach-Ol%C3%ADmpia_02-1200x656.jpeg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
-                    <h5 class="text-white bg-dark p-1">OLÍMPIA - SP</h5>
+                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                    <div style="background: url(https://dsdsuzy1jtjfw.cloudfront.net/wp-content/uploads/2020/07/Hot-Beach-Ol%C3%ADmpia_02-1200x656.jpeg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
+                        <h5 class="text-white bg-dark p-1">OLÍMPIA - SP</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div style="background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/77000/77780-Porto-Alegre-And-Vicinity.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
-                    <h5 class="text-white bg-dark p-1">PORTO ALEGRE - RS</h5>
+                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                    <div style="background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/77000/77780-Porto-Alegre-And-Vicinity.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
+                        <h5 class="text-white bg-dark p-1">PORTO ALEGRE - RS</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-3 p-1">
-                <div style="background: url(https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1280,h_720/https://www.goiania.go.gov.br/wp-content/uploads/2019/12/12.20.19GOIANIA_abrefecha.jpg) no-repeat; background-size: cover;" class="card p-5 text-center h-100 d-flex justify-content-center">
-                    <h5 class="text-white bg-dark p-1">GOIÂNIA - GO</h5>
+                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                    <div style="background: url(https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1280,h_720/https://www.goiania.go.gov.br/wp-content/uploads/2019/12/12.20.19GOIANIA_abrefecha.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
+                        <h5 class="text-white bg-dark p-1">GOIÂNIA - GO</h5>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="text-white">
-            <div class="container-fluid pt-5 pb-5">
+            <div class="container pt-5 pb-5">
                 <div class="row">
 
                     <div class="col-md-2">
