@@ -36,6 +36,16 @@
                 width: 50%;
                 margin-left: 0;
             }
+
+            @media only screen and (max-width: 400px) {
+                .mobile-hide{ display: none !important; }
+                }
+                @media only screen and (max-width: 400px) {
+                .mobile{ display: inline !important; }
+                }
+                @media only screen and (min-width: 500px) {
+                .desktop-hide{ display: none !important; }
+                }
         </style>
     </head>
     <body>
@@ -259,7 +269,8 @@
                 <div class="row">
 
                     <div class="col-md-2">
-                        <h1 class="font-weight-bold mt-5 pt-2 logotitulo">AirCloset</h1>
+                        <h1 class="font-weight-bold mt-5 pt-2 logotitulo mobile-hide">AirCloset</h1>
+                        <h1 class="font-weight-bold mt-2 pt-2 text-center mb-2 d-lg-none">AirCloset</h1>
                     </div>
 
                     <div class="col-md-3">
