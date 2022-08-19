@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>AirCloset | Início</title>
+        <title>AirCloset | Aluguel de roupas online | moda inverno e sustentável</title>
         <link rel="icon" href="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png">
 
         <!-- Fonts -->
