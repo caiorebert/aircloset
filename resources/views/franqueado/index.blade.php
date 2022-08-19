@@ -8,7 +8,7 @@
             <div class="col-md-2">
             </div>
             <div class="col-md-8">
-                <h1 class="title">SEJA UM FRANQUEADO</h1>
+                <h1 class="title text-sm-center">SEJA UM FRANQUEADO</h1>
                 <p class="mt-5">
                     Seja um franqueado da <b>AirCloset</b> e faça parte da maior franquia de compartilhamento do brasil. MODELO INOVADOR, RENTÁVEL, SUSTENTÁVEL E DE BAIXA CONCORRÊNCIA. Você ganha dinheiro, ajuda a preservar o meio ambiente, incentiva o consumo responsável, e investe no modelo mais inteligente de economia no mundo; a economia compartilhada.
                 </p>
