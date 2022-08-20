@@ -33,4 +33,8 @@ class UserController extends Controller
             print_r("Erro ao alterar!");
         }
     }
+
+    public function carrinho(){
+        return view('modulo_cliente.usuario.carrinho');
+    }
 }
