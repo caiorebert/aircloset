@@ -57,7 +57,7 @@
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <a class="btn btn-secondary" style="height: auto;">
+                    <a class="btn btn-secondary" href="{{ route('contato') }}" style="height: auto;">
                         <i class="fas fa-comment"></i>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
                     <a class="btn btn-primary" href="{{ route('atualizarDados')}}" style="height: auto;">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a class="btn btn-primary" style="height: auto;">
+                    <a class="btn btn-primary" href="{{ route('carrinho') }}" style="height: auto;">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>

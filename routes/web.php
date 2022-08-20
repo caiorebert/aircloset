@@ -32,4 +32,5 @@ Route::prefix('/')->group(function(){
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
     Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");
+    Route::get('/carrinho', [UserController::class, 'carrinho'])->middleware('auth')->name("carrinho");
 });
