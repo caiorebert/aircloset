@@ -21,12 +21,11 @@
 <body>
     <div id="container" class="container p-0" style="max-width: 100% !important;">
         <div classs="row header">
-            <div class="col-sm-12 col-md-12 col-lg-12 pl-1 pr-1">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @include('layout.head')
             </div>
         </div>
-
-        <div class="row content">
+        <div class="row content"  style="margin-right:0px !important; margin-left:0px !important">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 @yield('content')
             </div>

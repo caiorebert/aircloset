@@ -1,29 +1,30 @@
-header {
+nav {
     background: rgba(245,245,245,.5);
 }
 @media screen and (min-width:800px) {
-    header .desktop {
-        display: inline-block;
+    nav .desktop {
+        /* display: inline-block; */
     }
-    header .mobile {
+    nav .mobile {
         display: none;
     }
-    header {
+    nav {
         position: relative;
         height: 8vh;
         /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
     }
-    header .row {
+    nav .row {
         position: relative;
         margin: 0px !important;
         padding-top: 5px;
         padding-bottom: 5px;
         height: 100% !important;
+        width: 100% !important;
     }
-    header * {
+    nav * {
         height: 100%;
     }
-    header .input-pesquisa {
+    nav .input-pesquisa {
         position: absolute;
         margin:auto;
         top: 0;
@@ -32,43 +33,48 @@ header {
         right: 0;
         width: 80%;
     }
-    header .lista-opcoes {
+    nav .lista-opcoes {
         position: relative;
         
     }
-    header .lista-opcoes li {
+    nav .lista-opcoes li {
         color: black;
         display: inline-block;
     } 
     
 }
 @media screen and (max-width:800px) {
-    header .mobile {
+    nav {
+        display: block !important;
+    }
+    nav .mobile {
         display: block;
+        margin-left: 0px !important;
         /* box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5); */
         padding: 10px;
     }
-    header .desktop {
+    nav .desktop {
         display: none;
     }
-    header .mobile img {
+    nav .row.mobile {
+        width: 100%;
+    }
+    nav .mobile img {
         width:50px;
         height: 100%;
     }
-    header .mobile .menu {
-        background-color: white;
+    nav .mobile .menu {
         width: 100%;
     }
-    header .mobile ul {
+    nav .mobile ul {
         list-style: none;
         padding-inline-start: 0px;
     }
-    header .mobile ul li {
+    nav .mobile ul li {
         text-align: center;
-        background-color: white;
         padding: 10px;
         width: 100%;
         cursor: pointer;
-        border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+        border-bottom: 1px solid rgb(0, 0, 0, 0.1);
     }
 }
