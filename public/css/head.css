@@ -44,6 +44,10 @@ nav {
     
 }
 @media screen and (max-width:800px) {
+    .content {
+        margin-right:0px !important; 
+        margin-left:0px !important;
+    }
     nav {
         display: block !important;
     }
@@ -125,6 +129,10 @@ nav {
     
 }
 @media screen and (max-width:800px) {
+    .content {
+        margin-right:0px !important; 
+        margin-left:0px !important;
+    }
     nav {
         display: block !important;
     }

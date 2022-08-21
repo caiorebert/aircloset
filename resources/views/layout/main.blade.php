@@ -25,7 +25,7 @@
                 @include('layout.head')
             </div>
         </div>
-        <div class="row content"  style="margin-right:0px !important; margin-left:0px !important">
+        <div class="row content" >
             <div class="col-sm-12 col-md-12 col-lg-12">
                 @yield('content')
             </div>
