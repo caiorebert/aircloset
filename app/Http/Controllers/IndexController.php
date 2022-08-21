@@ -54,4 +54,8 @@ class IndexController extends Controller
             return redirect()->back()->withErrors(['error' => 'Aconteceu algum erro ao enviar o email! Tente novamente mais tarde.']);
         }
     }
+
+    public function search(Request $request) {
+        
+    }
 }
