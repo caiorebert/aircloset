@@ -93,11 +93,11 @@
                 <h1 class="display-4 font-weight-bold"> Alugue, economize e descomplique sua viagem. </h1>
                 <p class="font-bold mb-0"> Decida pelo aluguel de casacos e invista em uma nova forma de consumo sustentável. </p>
                 <div class="mt-5 bg-white rounded-lg">
-                    <form>
+                    <form id="form-search" action="{{ route('search') }}" method="post">
                         <div class="form-row p-4">
-
+                            @csrf
                             <div class="col-sm-12 col-md-4 col-lg-3 mt-1">
-                                <select class="form-control">
+                                <select class="form-control" name="tipo-roupa" required="true">
                                     <option>Todos</option>
                                     <option>Casacos</option>
                                     <option>Guarda-chuva</option>
@@ -109,22 +109,22 @@
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-3 mt-1">
-                                <select class="form-control">
+                                <select class="form-control" name="local" required="true">
                                     <option>Gramado - RS</option>
                                     <option>Campos do Jordão - SP</option>
                                 </select>
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input type="date" class="form-control" id="check-in">
+                                <input type="date" class="form-control" id="check-in" name="checkin" required="true">
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input type="date" class="form-control" id="checkout">
+                                <input type="date" class="form-control" id="checkout" name="checkout" required="true">
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <button type="button" class="btn btn-primary btn-block">BUSCAR</button>
+                                <input id="bt-search" type="submit" value="BUSCAR" class="btn btn-primary btn-block"/>
                             </div>
 
                         </div>

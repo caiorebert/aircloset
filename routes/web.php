@@ -26,9 +26,12 @@ Route::prefix('/')->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name("login");
     Route::post('/login', [LoginController::class, 'logar'])->name("logar");
     Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
+    Route::post('/sendMessage', [IndexController::class, 'sendMessage'])->name("sendMessage");
+    Route::post('/search', [IndexController::class, 'search'])->name('search');
 });
 
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
     Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");
+    Route::get('/carrinho', [UserController::class, 'carrinho'])->middleware('auth')->name("carrinho");
 });
