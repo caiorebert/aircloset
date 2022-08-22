@@ -66,8 +66,6 @@ class IndexController extends Controller
             $min = Produto::min('valor_diaria');
             $max = Produto::max('valor_diaria');
 
-            die($min . " - " . $max);
-
             return view('modulo_cliente.ecommerce.index', [
                 'produtos' => $produtos
             ]);
