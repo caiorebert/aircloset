@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Models\Mensagem;
+use App\Models\Produto;
 use App\Mail\SendMailUser;
 
 class IndexController extends Controller
@@ -56,6 +57,31 @@ class IndexController extends Controller
     }
 
     public function search(Request $request) {
-        
+        if ($request->all()) {
+            
+            $produtos = Produto::whereNotNull('deleted_at')
+                            ->where('local', '=', $request->input('local'))
+                            ->where('tipo_roupa', '=', $request->input('tipo_roupa'));
+            
+            $min = Produto::min('valor_diaria');
+            $max = Produto::max('valor_diaria');
+
+            die($min . " - " . $max);
+
+            return view('modulo_cliente.ecommerce.index', [
+                'produtos' => $produtos
+            ]);
+        } else {
+            $produtos = Produto::all();
+
+            $min = Produto::min('valor_diaria');
+            $max = Produto::max('valor_diaria');
+
+            return view('modulo_cliente.ecommerce.index', [
+                'produtos' => $produtos,
+                'max' => $max,
+                'min' => $min
+            ]);
+        }
     }
 }

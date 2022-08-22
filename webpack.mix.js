@@ -29,3 +29,7 @@ mix.postCss('resources/css/head.css', 'public/css', [
 mix.postCss('resources/css/franqueado.css', 'public/css', [
     //
 ]);
+
+mix.postCss('resources/css/ecommerce.css', 'public/css', [
+    //
+]);
