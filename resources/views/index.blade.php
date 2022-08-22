@@ -241,22 +241,27 @@
         <!-- Em Breve -->
         <div class="container mb-5">
             <div class="row">
-                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center mt-2 mb-5">
+                    <h1 class="font-weight-light">Veja onde você poderá nos encontrar <b>em breve</b></h1>
+                </div>
+
+                <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 mt-1">
                     <div style="background: url(https://viagemeturismo.abril.com.br/wp-content/uploads/2017/12/istock-842960000.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
                         <h5 class="text-white bg-dark p-1">SÃO PAULO - SP</h5>
                     </div>
                 </div>
-                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 mt-1">
                     <div style="background: url(https://dsdsuzy1jtjfw.cloudfront.net/wp-content/uploads/2020/07/Hot-Beach-Ol%C3%ADmpia_02-1200x656.jpeg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
                         <h5 class="text-white bg-dark p-1">OLÍMPIA - SP</h5>
                     </div>
                 </div>
-                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 mt-1">
                     <div style="background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/77000/77780-Porto-Alegre-And-Vicinity.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
                         <h5 class="text-white bg-dark p-1">PORTO ALEGRE - RS</h5>
                     </div>
                 </div>
-                <div style="min-height: 300px;" class="col-sm-12 col-md-3 col-lg-3">
+                <div style="min-height: 300px;" class="col-sm-12 col-md-6 col-lg-3 mt-1">
                     <div style="background: url(https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1280,h_720/https://www.goiania.go.gov.br/wp-content/uploads/2019/12/12.20.19GOIANIA_abrefecha.jpg) no-repeat; background-size: cover;" class="card text-center h-100 d-flex justify-content-center">
                         <h5 class="text-white bg-dark p-1">GOIÂNIA - GO</h5>
                     </div>
@@ -322,6 +327,7 @@
             var url = "https://thiagoprogramando.com.br/nuvem_aircloset/background/" + rndInt + '.jpg';
             var div = document.getElementById("principal");
             div.style.backgroundImage = `url(${url})`;
+
         </script>
     </body>
 </html>
