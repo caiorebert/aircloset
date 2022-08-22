@@ -1,11 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
     <div class="row mobile">
         <div class="col-md-12">
             <table style="width:100%;">
                 <tr>
                     <td>
-                        <a class="navbar-brand" href="{{ route('index') }}"><img width="50px"
-                                src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" /></a>
+                        <a class="navbar-brand" href="{{ route('index') }}">
+                            <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
+                        </a>
                     </td>
                     <td style="text-align:right;">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -53,11 +54,11 @@
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </li>
-                <li data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false"
+                <!--<li data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false"
                     aria-controls="collapseMenu" id="close-menu">
                     Fechar
                     <i class="fas fa-times"></i>
-                </li>
+                </li>-->
             </ul>
             @else
             <ul>
@@ -71,11 +72,11 @@
                         Entrar
                     </a>
                 </li>
-                <li data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false"
+                <!--<li data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false"
                     aria-controls="collapseMenu" id="close-menu">
                     Fechar
                     <i class="fas fa-times"></i>
-                </li>
+                </li>-->
             </ul>
             @endif
         </div>
@@ -83,7 +84,7 @@
     <div class="row desktop">
         <div class="col-md-2 text-center">
             <a href="{{ route('index') }}">
-                <img src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
+                <img style="width: 20%;" class="img-fluid" src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
             </a>
         </div>
         <div class="col-md-6">
