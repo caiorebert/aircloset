@@ -97,7 +97,7 @@
                         <div class="form-row p-4">
                             @csrf
                             <div class="col-sm-12 col-md-4 col-lg-3 mt-1">
-                                <select class="form-control" name="tipo-roupa" required="true">
+                                <select class="form-control" name="tipo_roupa" required="true">
                                     <option>Todos</option>
                                     <option>Casacos</option>
                                     <option>Guarda-chuva</option>
@@ -116,7 +116,7 @@
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input type="date" class="form-control" id="check-in" name="checkin" required="true">
+                                <input type="date" class="form-control" id="checkin" name="checkin" required="true">
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
