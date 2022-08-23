@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/head.css": "/css/head.css",
+    "/css/ecommerce.css": "/css/ecommerce.css",
     "/css/franqueado.css": "/css/franqueado.css",
     "/css/cadastro.css": "/css/cadastro.css",
-    "/css/app.css": "/css/app.css",
-    "/css/ecommerce.css": "/css/ecommerce.css"
+    "/css/app.css": "/css/app.css"
 }

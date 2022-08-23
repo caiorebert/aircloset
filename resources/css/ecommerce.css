@@ -3,8 +3,11 @@
 
 .produto {
     position: relative;
-    width: 22vw;
-    height: 40vh;
+    width: 20vw;
+    min-height: 350px;
+    max-height: 500px;
+    cursor: pointer;
+    display: inline-block;
     /* box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0, 0.3); */
     border: 0.5px solid rgba(156, 156, 156, 0.3);
     border-radius: 5px;

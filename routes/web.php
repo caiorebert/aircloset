@@ -31,6 +31,10 @@ Route::prefix('/')->group(function(){
     Route::get('/search', [IndexController::class, 'search'])->name('search');
 });
 
+Route::prefix('/produto')->group(function(){
+    Route::get('/', [IndexController::class, 'index'])->name("index");
+});
+
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
     Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");

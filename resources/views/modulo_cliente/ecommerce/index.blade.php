@@ -266,7 +266,7 @@
             <div class="col-md-9">
                 <ul style="list-style:none;">
                 @foreach($produtos as $produto)
-                    <li class="produto">
+                    <li class="produto" data-id="{{ $produto->id }}">
                         <div class="produto-img">
                             <img src="{{ $produto->thumb }}"/>
                         </div>
@@ -299,6 +299,10 @@
         $(function(){
             $("#rangePrecos").change(function(){
                 
+            });
+
+            $(".produto").click(function(){
+                window.location.href= "/produto/" + $(this).attr('data-id');
             });
         });
     </script>
