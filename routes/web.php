@@ -32,7 +32,8 @@ Route::prefix('/')->group(function(){
 });
 
 Route::prefix('/produto')->group(function(){
-    Route::get('/', [IndexController::class, 'index'])->name("index");
+    // Route::get('/', [IndexController::class, 'index'])->name("index");
+    Route::get('/{id_produto}', [ProdutoController::class, 'index'])->name("produto");
 });
 
 Route::prefix('/user')->group(function(){

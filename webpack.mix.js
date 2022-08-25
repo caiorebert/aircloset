@@ -33,3 +33,7 @@ mix.postCss('resources/css/franqueado.css', 'public/css', [
 mix.postCss('resources/css/ecommerce.css', 'public/css', [
     //
 ]);
+
+mix.postCss('resources/css/produto.css', 'public/css', [
+    //
+]);
