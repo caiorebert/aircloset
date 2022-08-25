@@ -17254,6 +17254,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/produto.css":
+/*!***********************************!*\
+  !*** ./resources/css/produto.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -17434,6 +17447,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"css/ecommerce": 0,
 /******/ 			"css/franqueado": 0,
 /******/ 			"css/cadastro": 0,
+/******/ 			"css/produto": 0,
 /******/ 			"css/head": 0
 /******/ 		};
 /******/ 		
@@ -17484,12 +17498,13 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/css/cadastro.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/css/head.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/css/franqueado.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/head"], () => (__webpack_require__("./resources/css/ecommerce.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/cadastro.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/head.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/franqueado.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/ecommerce.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/ecommerce","css/franqueado","css/cadastro","css/produto","css/head"], () => (__webpack_require__("./resources/css/produto.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
