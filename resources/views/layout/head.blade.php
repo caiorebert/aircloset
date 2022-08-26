@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="row mobile">
         <div class="col-md-12">
             <table style="width:100%;">
@@ -89,11 +89,12 @@
         </div>
         <div class="col-md-6">
             <input class="input-pesquisa form-control" type="text" name="search"
-                placeholder="Busque por produtos, marcas..." />
+                placeholder="Busque por produtos, marcas..." style="width:70%"/>
+            <span class="input-group-text" style="width:19%;" id="basic-addon1"><i calss="fas fa-search"></i></span>
         </div>
-        @if(auth()->check())
         <div class="col-md-4">
             <div class="row">
+                @if(auth()->check())
                 <div class="col-md-3 text-center">
                     <a class="btn btn-secondary" href="{{ route('contato') }}" style="height: auto;">
                         <i class="fas fa-comment"></i>
@@ -112,19 +113,20 @@
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </div>
-                </form>
                 @else
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cadastro') }}">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-comment"></i></a>
-                    </li>
-                </ul>
+                <div class="col-md-12">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cadastro') }}">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-comment"></i></a>
+                        </li>
+                    </ul>
+                </div>
                 @endif
             </div>
         </div>
