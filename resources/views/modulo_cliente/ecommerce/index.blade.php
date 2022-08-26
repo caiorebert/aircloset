@@ -156,9 +156,122 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
+                        <h6>Comprimento</h6>
+                        <ul style="list-style:none; padding-inline-start:0px;">
+                            <li>
+                                <input type="checkbox" />
+                                <label>Longuíssimo</label>
+                            </li>    
+                            <li>
+                                <input type="checkbox" />
+                                <label>Curto</label>
+                            </li>  
+                            <li>
+                                <input type="checkbox" />
+                                <label>Médio</label>
+                            </li>  
+                            <li>
+                                <input type="checkbox" />
+                                <label>Longo</label>
+                            </li>  
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
                         <h6>Tecido</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
-                            
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Matelasse
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Poliéster
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Sarja forrado
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Pelo
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Camurça
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Veludo
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            PVC
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Nylon
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Lã Sintética
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Algodão
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Couro
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Lã
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Malha
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Denim
+                            </label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="" id="">
+                            <label>
+                            Viscose
+                            </label>
+                        </li>
                         </ul>
                     </div>
                 </div>
@@ -266,26 +379,28 @@
             <div class="col-md-9">
                 <ul style="list-style:none;">
                 @foreach($produtos as $produto)
-                    <li class="produto" data-id="{{ $produto->id }}">
-                        <div class="produto-img">
-                            <img src="{{ $produto->thumb }}"/>
-                        </div>
-                        <div class="produto-descricao">
-                            <table style="width:100%; text-align:center;">
-                                <tr>
-                                    <td>
-                                        <h6 class="mt-3">
-                                            {{ $produto->nome }}
-                                        </h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        R$ {{ $produto->valor_diaria }} a diária
-                                    </td>
-                                </tr>
-                            </table>    
-                        </div>
+                    <li class="produto">
+                        <a href="{{ route('produto', $produto->id) }}" >
+                            <div class="produto-img">
+                                <img src="{{ $produto->thumb }}"/>
+                            </div>
+                            <div class="produto-descricao">
+                                <table style="width:100%; text-align:center;">
+                                    <tr>
+                                        <td>
+                                            <h6 class="mt-3">
+                                                {{ $produto->nome }}
+                                            </h6>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            R$ {{ $produto->valor_diaria }} a diária
+                                        </td>
+                                    </tr>
+                                </table>    
+                            </div>
+                        </a>
                     </li>
                 @endforeach
                 </ul>
@@ -299,10 +414,6 @@
         $(function(){
             $("#rangePrecos").change(function(){
                 
-            });
-
-            $(".produto").click(function(){
-                window.location.href= "/produto/" + $(this).attr('data-id');
             });
         });
     </script>
