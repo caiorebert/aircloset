@@ -14,6 +14,11 @@
     overflow: hidden;
 }
 
+.produto a {
+    text-decoration: none;
+    color: black;
+}
+
 .produto .produto-img {
     width: 100%;
     height: 80%;
