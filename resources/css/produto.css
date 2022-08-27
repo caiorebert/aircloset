@@ -1,4 +1,30 @@
+.mini-fotos {
+    margin-top: 10px;
+    padding-inline-start: 0px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.mini-fotos li {
+    display: inline-block;
+    height: 100px;
+    cursor: pointer;
+    width: 70px;
+    background-size: 100% 100%;
+}
+
+.mini-foto.selected {
+    border: 5px solid #344c9d;
+}
+
 .title-produto {
     width: 100%;
     text-align: center;
+}
+
+.perfil-vendedor {
+    position: relative;
+    margin: auto;
+    width: 50%;
 }

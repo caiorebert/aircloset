@@ -4,6 +4,13 @@
     --danger: #c23321;
 }
 
-.btn .btn-primary2 {
+.btn-primary2 {
+    color: white;
     background-color: #2d4373 !important;
+}
+
+.btn-primary2:hover {
+    color: #2d4373;
+    border: 1px solid #2d4373;
+    background-color: white !important;
 }

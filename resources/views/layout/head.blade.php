@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="row mobile">
         <div class="col-md-12">
             <table style="width:100%;">
@@ -87,13 +87,16 @@
                 <img style="width: 20%;" class="img-fluid" src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
             </a>
         </div>
-        <div class="col-md-6">
-            <input class="input-pesquisa form-control" type="text" name="search"
-                placeholder="Busque por produtos, marcas..." />
+        <div class="col-md-6" style="display:inline-block">
+            <div class="input-group">
+                <input class="input-pesquisa form-control" type="text" name="search"
+                    placeholder="Busque por produtos, marcas..."/>
+                <span class="input-group-text pt-2" id="basic-addon1"><i class="fa-solid fa-magnifying-glass pt-2"></i></span>
+            </div>
         </div>
-        @if(auth()->check())
         <div class="col-md-4">
             <div class="row">
+                @if(auth()->check())
                 <div class="col-md-3 text-center">
                     <a class="btn btn-secondary" href="{{ route('contato') }}" style="height: auto;">
                         <i class="fas fa-comment"></i>
@@ -112,19 +115,20 @@
                         <i class="fas fa-sign-out"></i>
                     </a>
                 </div>
-                </form>
                 @else
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cadastro') }}">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-comment"></i></a>
-                    </li>
-                </ul>
+                <div class="col-md-12">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cadastro') }}">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-comment"></i></a>
+                        </li>
+                    </ul>
+                </div>
                 @endif
             </div>
         </div>
