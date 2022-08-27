@@ -87,10 +87,12 @@
                 <img style="width: 20%;" class="img-fluid" src="https://www.aircloset.com.br/assets/img/logo-branca-sg-new.png" />
             </a>
         </div>
-        <div class="col-md-6">
-            <input class="input-pesquisa form-control" type="text" name="search"
-                placeholder="Busque por produtos, marcas..." style="width:70%"/>
-            <span class="input-group-text" style="width:19%;" id="basic-addon1"><i calss="fas fa-search"></i></span>
+        <div class="col-md-6" style="display:inline-block">
+            <div class="input-group">
+                <input class="input-pesquisa form-control" type="text" name="search"
+                    placeholder="Busque por produtos, marcas..."/>
+                <span class="input-group-text pt-2" id="basic-addon1"><i class="fa-solid fa-magnifying-glass pt-2"></i></span>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="row">

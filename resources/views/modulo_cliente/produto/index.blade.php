@@ -9,18 +9,18 @@
             <br>
             <div class="row">
                 <div class="col-md-3">
-                    <img style="width:100%;" src="{{ $produto->thumb }}" />
+                    <img class="thumb-principal" style="width:100%;" src="{{ $produto->thumb }}" />
                     <div class="row">
                         <div class="col-md-12">
-                            <ul style="display:inline-block;">
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
+                            <ul class="mini-fotos">
+                                <li class="mini-foto selected" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
+                                <li class="mini-foto" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
+                                <li class="mini-foto" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-5">
                     <h3 class="title-produto">{{ $produto->nome }}</h3>
                     <hr>
                     <div class="row">
@@ -76,31 +76,62 @@
                     <br>
                     <div class="row" style="font-size: 1.5em;">
                         <div class="col-md-1"></div>
-                        <div class="col-md-8">
-                            <div class="row">
+                        <div class="col-md-11">
+                            <div class="row  text-center">
                                 <div class="col-md-12">
                                     <label>ALUGUE</label>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="text-muted">4 (diárias) x <span style="font-size: 1em; color:black;"><b>R$ 75,00</b></span></label>
                                 </div>
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12">
                                     <label>Total <span style="positon:absolute; margin:auto; top:0; right:0; font-size: 0.5em;"><i class="fas fa-question"></i></span></label><br>
                                     <label><b>R$ 235,00</b></label>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11 text-center">
+                            <button class="btn btn-primary2">RESERVAR</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <h1 class="title-produto">{{ $produto->nome }}</h1>
+                <div class="col-md-4 text-center">
+                    <h4><i class="fas fa-location-dot"></i> ONDE ESTÁ MEU PRODUTO</h4>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9833.724144348766!2d-50.88019577710966!3d-29.377710480063467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519338468550447%3A0x563211d1c4741b2f!2sAirCloset%20-%20Aluguel%20de%20casacos%20e%20itens%20de%20viagem%20em%20Gramado!5e0!3m2!1spt-BR!2sbr!4v1661614141506!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="perfil-vendedor">
+                                <table>
+                                    <tr>
+                                        <td style="width:30%">
+                                            <img src="https://api.aircloset.com.br/produto/verImagem/32880d43f69941cf0427907e174d4cf8c0d1a7f6/50x50"/>
+                                        </td>
+                                        <td style="width:50%">
+                                            <h6>
+                                                AirCloset - Gramado/RS
+                                                Gramado - RS
+                                            </h6>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="detalhes-tab" data-bs-toggle="tab" data-bs-target="#detalhes" type="button" role="tab" aria-controls="detalhes" aria-selected="true">Detalhes</button>
+                            <button class="nav-link active" id="detalh4s-tab" data-bs-toggle="tab" data-bs-target="#detalhes" type="button" role="tab" aria-controls="detalhes" aria-selected="true">Detalhes</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="avaliacoes-tab" data-bs-toggle="tab" data-bs-target="#avaliacoes" type="button" role="tab" aria-controls="avaliacoes" aria-selected="false">Avaliações</button>
@@ -147,4 +178,15 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(function(){
+            $(".mini-foto").click(function(){
+                $(this).addClass('selected');
+                $(this).siblings('.mini-foto').removeClass('selected');
+                $(".thumb-principal").attr('src', $(this).attr('data-url'));
+            });
+        });
+    </script>
 @endsection
