@@ -17,11 +17,13 @@
         <div class="row p-3">
             <div class="col-lg-1"></div>
             <div class="col-lg-10 text-right">
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                <select class="form-control filtro-ordenacao" style="width:20%;">
+                    <option>Ordenar por</option>
+                    <option>Mais relevantes</option>
+                    <option>Novidades</option>
+                    <option>Mais baratos</option>
+                    <option>Mais caros</option>
+                    <option>Populares</option>
                 </select>
             </div>
             <div class="col-lg-1"></div>
@@ -38,7 +40,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <button class="btn btn-primary">LIMPAR FILTROS</button>
+                        <button class="btn btn-primary-aircloset">LIMPAR FILTROS</button>
                     </div>
                 </div>
                 <hr>
@@ -412,8 +414,13 @@
 @section('script')
     <script>
         $(function(){
-            $("#rangePrecos").change(function(){
-                
+            var filtros = {};
+            $(".filtro-ordenacao").change(function(){
+                var ordem = $(this).val();
+                filtros.push(ordem: ordem);
+                $.post("route('search')", { filtros: filtros }, function(response){
+
+                });
             });
         });
     </script>

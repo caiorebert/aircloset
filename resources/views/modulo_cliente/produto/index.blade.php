@@ -13,9 +13,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="mini-fotos">
-                                <li class="mini-foto selected" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
-                                <li class="mini-foto" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
-                                <li class="mini-foto" data-url="{{ $produto->thumb  }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
+                                <li class="mini-foto" data-url="{{ $produto->thumb }}" style="background-image: url('{{ $produto->thumb  }}');"></li>
+                                @foreach($fotos as $foto)
+                                    <li class="mini-foto" data-url="{{ $foto->url  }}" style="background-image: url('{{ $foto->url  }}');"></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -28,10 +29,11 @@
                             <h6>TAMANHO</h6>
                         </div>
                         <div class="col-md-12">
-                            <select class="form-control">
-                                <option>Selecione um tamanho</option>
-                                <option>1</option>
-                                <option>1</option>
+                            <select class="form-control tamanhos">
+                                <option value="">Selecione um tamanho</option>
+                                @foreach($tamanhos as $tamanho)
+                                    <option value="{{ $tamanho->tamanho }}">{{ $tamanho->tamanho }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -42,17 +44,17 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="form-control" type="date" name="receberin" id="receberin">
+                            <input class="form-control inputs-to-disable" disabled="true" type="date" name="receberin" id="receberin">
                         </div>
                         <div class="col-md-6">
-                            <input class="form-control" type="date" name="devolverin" id="devolverin">
+                            <input class="form-control inputs-to-disable" disabled="true" type="date" name="devolverin" id="devolverin">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="input-group">
-                                <select class="form-control" name="hora_retirada" id="hora_retirada">
+                                <select class="form-control inputs-to-disable" disabled="true" name="hora_retirada" id="hora_retirada">
                                     <option>07:30</option>
                                     <option>08:00</option>
                                     <option>08:30</option>
@@ -63,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <select class="form-control" name="hora_devolucao" id="hora_devolucao">
+                                <select class="form-control inputs-to-disable" disabled="true" name="hora_devolucao" id="hora_devolucao">
                                     <option>07:30</option>
                                     <option>08:00</option>
                                     <option>08:30</option>
@@ -82,11 +84,14 @@
                                     <label>ALUGUE</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="text-muted">4 (diárias) x <span style="font-size: 1em; color:black;"><b>R$ 75,00</b></span></label>
+                                    <label class="text-muted">4 (diárias) x </label>
+                                    <label>
+                                        <b >R$ {{ number_format($produto->valor_diaria, 2, ',', '.'); }}</b>
+                                    </label>
                                 </div>
                                 <div class="col-md-12">
                                     <label>Total <span style="positon:absolute; margin:auto; top:0; right:0; font-size: 0.5em;"><i class="fas fa-question"></i></span></label><br>
-                                    <label><b>R$ 235,00</b></label>
+                                    <label><b>R$ {{ number_format($produto->valor_diaria * 4, 2, ',', '.'); }}</b></label>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +100,7 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-11 text-center">
-                            <button class="btn btn-primary2">RESERVAR</button>
+                            <a class="btn btn-primary-aircloset" href="{{ route('adiciona_carrinho', $produto->id) }}">RESERVAR</a>
                         </div>
                     </div>
                 </div>
@@ -149,13 +154,13 @@
                                 <div class="col-md-12">
                                     <h6>Nome do Produto:</h6>
                                     <label>
-                                        07 - BRANCO COM PELO LONGO 48-50 GG
+                                        {{ $produto->nome }}
                                     </label>
                                 </div>
                                 <div class="col-md-12">
                                     <h6>Descrição do Produto:</h6>
                                     <label>
-                                        Longo e classudo, o look leve com detalhes na gola faz toda a diferença. Possui bolsos laterais com lapelas embutidos na parte frontal da peça. Comprimento longo e fechamento frontal por botões. Acompanha cinto e gola reversível de pelo sintético. Medidas: Ombro: 46 cm, busto: 59 cm, comprimento: 84 cm, braço: 65 cm.
+                                        {{ $produto->descricao }}
                                     </label>
                                 </div>
                             </div>
@@ -164,12 +169,40 @@
                             <div class="row pt-3">
                                 <div class="col-md-12">
                                     <h3>AVALIAÇÕES</h3>
+                                    <hr style="background-color:black; width:100%;">
                                 </div>
                             </div>
-                            <hr>
                             <div class="row">
-                                <div class="col-md-12">
-                                    
+                                <div class="col-md-12 avaliacoes">
+                                    @foreach($comentarios as $comentario)
+                                        <div class="row">
+                                            <div class="col-md-12 avaliacao">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <label>
+                                                                <b>
+                                                                    {{ $comentario->nome }}
+                                                                </b>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label style="font-size: 0.8em;" class="text-muted">
+                                                                {{ $comentario->created_at }}
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <p>
+                                                                {{ $comentario->comentario }}
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -186,6 +219,14 @@
                 $(this).addClass('selected');
                 $(this).siblings('.mini-foto').removeClass('selected');
                 $(".thumb-principal").attr('src', $(this).attr('data-url'));
+            });
+
+            $(".tamanhos").click(function(){
+                if ($(this).val()!="") {
+                    $(".inputs-to-disable").attr('disabled', false);
+                } else {
+                    $(".inputs-to-disable").attr('disabled', true);
+                }
             });
         });
     </script>

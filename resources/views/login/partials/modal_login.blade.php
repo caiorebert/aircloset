@@ -43,7 +43,7 @@
           </div>
           <div class="row">
               <div class="col-md-12 text-center">
-                  <input type="submit" class="btn btn-primary" value="ENTRAR"/>
+                  <input type="submit" class="btn btn-primary-aircloset" value="ENTRAR"/>
               </div>
           </div>
         </form>

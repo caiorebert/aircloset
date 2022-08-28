@@ -103,10 +103,10 @@
                     </a>
                 </div>
                 <div class="col-md-6 text-center">
-                    <a class="btn btn-primary" href="{{ route('atualizarDados')}}" style="height: auto;">
+                    <a class="btn btn-primary-aircloset" href="{{ route('atualizarDados')}}" style="height: auto;">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a class="btn btn-primary" href="{{ route('carrinho') }}" style="height: auto;">
+                    <a class="btn btn-primary-aircloset" href="{{ route('carrinho') }}" style="height: auto;">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>

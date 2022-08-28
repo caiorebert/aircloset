@@ -58,9 +58,7 @@ class IndexController extends Controller
 
     public function search(Request $request) {
         if ($request->all()) {
-            
-            $produtos = Produto::whereNotNull('deleted_at')
-                            ->where('local', '=', $request->input('local'))
+            $produtos = Produto::where('local', '=', $request->input('local'))
                             ->where('tipo_roupa', '=', $request->input('tipo_roupa'));
             
             $min = Produto::min('valor_diaria');

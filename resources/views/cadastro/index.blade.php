@@ -134,7 +134,7 @@
         </div>
         <div class="row pt-4 pb-4">
             <div class="col-md-12">
-                <input type="submit" name="submit" class="btn btn-primary" style="width:100%;" value="CRIAR CONTA"/>
+                <input type="submit" name="submit" class="btn btn-primary-aircloset" style="width:100%;" value="CRIAR CONTA"/>
             </div>
         </div>
         </form>

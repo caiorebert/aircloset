@@ -124,7 +124,7 @@
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input id="bt-search" type="submit" value="BUSCAR" class="btn btn-primary btn-block"/>
+                                <input id="bt-search" type="submit" value="BUSCAR" class="btn btn-primary-aircloset btn-block"/>
                             </div>
 
                         </div>
@@ -140,7 +140,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <h4 class="text-center">Apresentando <b>AIRCLOSET</b></h4>
                     <p class="text-justify text-bold">A primeira plataforma de economia circular online de aluguel de casacos, botas e itens de viagem no Brasil. Possuímos loja física em Gramado-RS e Campos de Jordão-SP. Em breve estaremos em outras cidades do país. Nosso objetivo é revolucionar o universo da economia colaborativa no Brasil, a partir de um consumo inovador, consciente e sustentável.</p>
-                    <center><a class="btn btn-primary p-2" href="">Saiba mais</a></center>
+                    <center><a class="btn btn-primary-aircloset p-2" href="">Saiba mais</a></center>
                 </div>
             </div>
         </div>
