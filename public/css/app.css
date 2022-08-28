@@ -79,12 +79,12 @@ nav {
     --danger: #c23321;
 }
 
-.btn-primary2 {
+.btn-primary-aircloset {
     color: white;
     background-color: #2d4373 !important;
 }
 
-.btn-primary2:hover {
+.btn-primary-aircloset:hover {
     color: #2d4373;
     border: 1px solid #2d4373;
     background-color: white !important;

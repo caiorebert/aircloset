@@ -27,17 +27,23 @@ Route::prefix('/')->group(function(){
     Route::post('/login', [LoginController::class, 'logar'])->name("logar");
     Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
     Route::post('/sendMessage', [IndexController::class, 'sendMessage'])->name("sendMessage");
-    Route::post('/search', [IndexController::class, 'search'])->name('search');
-    Route::get('/search', [IndexController::class, 'search'])->name('search');
+});
+
+Route::prefix('/search')->group(function(){
+    Route::post('/', [IndexController::class, 'search'])->name('search');
+    Route::get('/', [IndexController::class, 'search'])->name('search');
 });
 
 Route::prefix('/produto')->group(function(){
-    // Route::get('/', [IndexController::class, 'index'])->name("index");
     Route::get('/{id_produto}', [ProdutoController::class, 'index'])->name("produto");
 });
 
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
     Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");
-    Route::get('/carrinho', [UserController::class, 'carrinho'])->middleware('auth')->name("carrinho");
+});
+
+Route::prefix('/user/carrinho')->group(function(){
+    Route::get('/', [UserController::class, 'carrinho'])->middleware('auth')->name("carrinho");
+    Route::get('/adiciona_carrinho/{id_produto}', [ProdutoController::class, 'adiciona_carrinho'])->name('adiciona_carrinho');
 });

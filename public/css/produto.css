@@ -29,3 +29,12 @@
     margin: auto;
     width: 50%;
 }
+
+.avaliacoes {
+    padding: 10px;
+}
+
+.avaliacao {
+    position: relative;
+    width: auto;
+}
