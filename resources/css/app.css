@@ -4,6 +4,11 @@
     --danger: #c23321;
 }
 
+hr {
+    background-color: rgb(175, 175, 175) !important;
+    width: 100% !important;
+}
+
 .btn-primary-aircloset {
     color: white;
     background-color: #2d4373 !important;
@@ -13,4 +18,8 @@
     color: #2d4373;
     border: 1px solid #2d4373;
     background-color: white !important;
+}
+
+.text-primary-aircloset {
+    color: #2d4373 !important;
 }
