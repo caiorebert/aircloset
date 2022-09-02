@@ -6,9 +6,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-1">
-    
-            </div>
+            <div class="col-md-1"></div>
             <div class="col-md-7">
                 <h1>Listagem de Produtos</h1>
             </div>
@@ -39,8 +37,12 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-12 text-right">
-                        <button class="btn btn-primary-aircloset">LIMPAR FILTROS</button>
+                    <div class="col-md-12">
+                        <button class="btn btn-primary-aircloset" style="width:100%;" id="buscar">BUSCAR <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="col-md-12">
+                        <hr>
+                        <button class="btn btn-secondary" style="width:100%;" id="limpa-filtros">LIMPAR FILTROS</button>
                     </div>
                 </div>
                 <hr>
@@ -51,28 +53,22 @@
                         </h6>                            
                     </div>
                     <div class="col-md-12">
-                        <table>
-                            <tr>
-                                <td class="text-left">
-                                    R${{ $min }}
-                                </td>
-                                <td class="text-right">
-                                    R${{ $max }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <div class="range">
-                                        <input type="range" class="form-range" min="{{ $min }}" value="{{ $max }}" max="{{ $max }}" step="5" id="rangePrecos">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="preco_atual">
-
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Preço mínimo:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text pt-2">R$</span>
+                                    <input class="form-control" type="number" name="min" id="min" value="{{ $min }}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Preço máximo:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text pt-2">R$</span>
+                                    <input class="form-control" type="number" name="max" id="max" value="{{ $max }}">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -83,22 +79,28 @@
                         </h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                             <li>
-                                <input type="checkbox" name="dep-masculino" id="dep-masculino">
-                                <label for="dep-masculino">
-                                    Masculino
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" class="filtros" value="Masculino" data-tipo-filtro="departamento" name="dep-masculino" id="dep-masculino">
+                                    <label class="form-check-label" for="dep-masculino">
+                                        Masculino
+                                    </label> 
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="dep-feminino" id="dep-feminino">
-                                <label for="dep-feminino">
-                                    Feminino 
-                                </label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" class="filtros" value="Feminino" data-tipo-filtro="departamento" name="dep-feminino" id="dep-feminino">
+                                    <label class="form-check-label" for="dep-feminino">
+                                        Feminino 
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="dep-infantil" id="dep-infantil">
-                                <label for="dep-infantil">
-                                    Infantil 
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" class="filtros" value="Infantil" data-tipo-filtro="departamento" name="dep-infantil" id="dep-infantil">
+                                    <label class="form-check-label" for="dep-infantil">
+                                        Infantil 
+                                    </label> 
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -109,10 +111,12 @@
                         <h6>Lojas</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                             <li>
-                                <input type="checkbox" name="loja" id="loja">
-                                <label for="loja">
-                                    AirCloset - Gramado/RS
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" class="filtros" data-tipo-filtro="local" value="Aircloset - Gramado/RS" name="loja" id="loja">
+                                    <label class="form-check-label" for="loja">
+                                        AirCloset - Gramado/RS
+                                    </label> 
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -123,34 +127,44 @@
                         <h6>Categoria</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                             <li>
-                                <input type="checkbox" name="" id="">
-                                <label for="">
-                                    Casacos
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" value="Casacos" class="filtros" data-tipo-filtro="categoria" name="" id="">
+                                    <label class="form-check-label" for="">
+                                        Casacos
+                                    </label> 
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="" id="">
-                                <label for="">
-                                    Guarda- chuva
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" value="Guarda- chuva" class="filtros" data-tipo-filtro="categoria" name="" id="">
+                                    <label class="form-check-label" for="">
+                                        Guarda- chuva
+                                    </label> 
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="" id="">
-                                <label for="">
-                                    Botas e Sapatos
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" value="Botas e Sapatos" class="filtros" data-tipo-filtro="categoria" name="" id="">
+                                    <label class="form-check-label" for="">
+                                        Botas e Sapatos
+                                    </label> 
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="" id="">
-                                <label for="">
-                                    Itens de viagem
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" value="Itens de viagem" class="filtros" data-tipo-filtro="categoria" name="" id="">
+                                    <label class="form-check-label" for="">
+                                        Itens de viagem
+                                    </label> 
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox" name="" id="">
-                                <label for="">
-                                    Vestidos e Saias
-                                </label> 
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" type="checkbox" value="Vestidos e Saias" class="filtros" data-tipo-filtro="categoria" name="" id="">
+                                    <label class="form-check-label" for="">
+                                        Vestidos e Saias
+                                    </label> 
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -161,20 +175,28 @@
                         <h6>Comprimento</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                             <li>
-                                <input type="checkbox" />
-                                <label>Longuíssimo</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Longuíssimo" type="checkbox" data-tipo-filtro="comprimento" class="filtros" />
+                                    <label class="form-check-label">Longuíssimo</label>
+                                </div>
                             </li>    
                             <li>
-                                <input type="checkbox" />
-                                <label>Curto</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Curto" type="checkbox" data-tipo-filtro="comprimento" class="filtros" />
+                                    <label class="form-check-label">Curto</label>
+                                </div>
                             </li>  
                             <li>
-                                <input type="checkbox" />
-                                <label>Médio</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Médio" type="checkbox" data-tipo-filtro="comprimento" class="filtros" />
+                                    <label class="form-check-label">Médio</label>
+                                </div>
                             </li>  
                             <li>
-                                <input type="checkbox" />
-                                <label>Longo</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Longo" type="checkbox" data-tipo-filtro="comprimento" class="filtros" />
+                                    <label class="form-check-label">Longo</label>
+                                </div>
                             </li>  
                         </ul>
                     </div>
@@ -185,94 +207,124 @@
                         <h6>Tecido</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Matelasse
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Matelasse" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Matelasse
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Poliéster
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Poliéster" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Poliéster
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Sarja forrado
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Sarja forrado" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Sarja forrado
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Pelo
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Pelo" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Pelo
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Camurça
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Camurça" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Camurça
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Veludo
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Veludo" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Veludo
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            PVC
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="PVC" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                PVC
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Nylon
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Nylon" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Nylon
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Lã Sintética
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Lã Sintética" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Lã Sintética
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Algodão
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Algodão" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Algodão
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Couro
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Couro" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Couro
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Lã
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Lã" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Lã
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Malha
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Malha" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Malha
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Denim
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Denim" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Denim
+                                </label>
+                            </div>
                         </li>
                         <li>
-                            <input type="checkbox" name="" id="">
-                            <label>
-                            Viscose
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input filtros" value="Viscose" type="checkbox" data-tipo-filtro="tecido" class="filtros" name="" id="">
+                                <label class="form-check-label">
+                                Viscose
+                                </label>
+                            </div>
                         </li>
                         </ul>
                     </div>
@@ -283,103 +335,149 @@
                         <h6>Cor</h6>
                         <ul style="list-style:none; padding-inline-start:0px;">
                             <li>
-                                <input type="checkbox"/>
-                                <label>Laranja</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Laranja" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Laranja</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Pink</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Pink" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Pink</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Rosa</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Rosa" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Rosa</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Azul Royal</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Azul Royal" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Azul Royal</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Azul Marinho</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Azul Marinho" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Azul Marinho</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Bege</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Bege" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Bege</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Areia</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Areia" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Areia</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Telha</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Telha" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Telha</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Poá</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Poá" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Poá</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Chumbo</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Chumbo" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Chumbo</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Verde</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Verde" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Verde</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Lilás</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Lilás" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Lilás</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Xadrez</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Xadrez" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Xadrez</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Dourado</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Dourado" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Dourado</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Rose</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Rose" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Rose</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Preto</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Preto" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Preto</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Cinza</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Cinza" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Cinza</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Branco</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Branco" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Branco</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Marrom</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Marrom" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Marrom</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Caramelo</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Caramelo" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Caramelo</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Amarelo</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Amarelo" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Amarelo</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Vermelho</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Vermelho" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Vermelho</label>
+                                </div>
                             </li>
                             <li>
-                                <input type="checkbox"/>
-                                <label>Azul</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtros" value="Azul" data-tipo-filtro="cor" type="checkbox" class="filtros"/>
+                                    <label class="form-check-label">Azul</label>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>  
             <div class="col-md-9">
-                <ul style="list-style:none;">
+                <ul class="produtos" style="list-style:none; text-align:center;">
                 @foreach($produtos as $produto)
                     <li class="produto">
                         <a href="{{ route('produto', $produto->id) }}" >
@@ -413,15 +511,67 @@
 @endsection
 @section('script')
     <script>
+        function adicionaToListFiltros(){
+
+        }
+        function busca(objFiltros){
+            $(".produtos").html(`
+                <div class="spinner-border text-primary-aircloset" role="status">
+                    <span class="sr-only">Carregando...</span>
+                </div>
+            `);
+            $.post("{{ route('search') }}", { '_token': '{{ csrf_token() }}', 'objFiltros' : objFiltros }, function(response){
+                $(".produtos").html(response);
+            });
+        }
         $(function(){
-            var filtros = {};
+            var objFiltros = {
+                search: "",
+                ordenacao: "",
+                filtros: [
+                    {
+                        name: 'preco_max',
+                        value: $("#max").val()
+                    },
+                    {
+                        name: 'preco_min',
+                        value: $("#min").val()
+                    }
+                ]
+            };
+            $("#buscar").click(function(){
+                objFiltros.search = $("input[name='search']").val();
+                objFiltros.filtros[0].value = $("#max").val();
+                objFiltros.filtros[1].value = $("#min").val();
+                busca(objFiltros);
+            });
             $(".filtro-ordenacao").change(function(){
                 var ordem = $(this).val();
-                filtros.push(ordem: ordem);
-                $.post("route('search')", { filtros: filtros }, function(response){
-
-                });
+                objFiltros.search = $(this).val();
             });
+            $(".filtros").change(function(){
+                var obj = {
+                    name: $(this).attr('data-tipo-filtro'),
+                    value: $(this).val()
+                };
+                var existe = false;
+                var index = 0;
+                for (var i = 2; i < objFiltros.filtros.length; i++) {
+                    if (objFiltros.filtros[i].value==obj.value) {
+                        existe = true;
+                        index = i;
+                    }
+                }
+                if (!existe) {
+                    objFiltros.filtros.push(obj);
+                } else {
+                    objFiltros.filtros.splice(index, index + 1);
+                }
+            });
+            $("#limpa-filtros").click(function(){
+                objFiltros.filtros = [];
+                $(".filtros").attr("selected", false);
+            }); 
         });
     </script>
 @endsection

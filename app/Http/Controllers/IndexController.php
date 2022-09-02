@@ -55,31 +55,4 @@ class IndexController extends Controller
             return redirect()->back()->withErrors(['error' => 'Aconteceu algum erro ao enviar o email! Tente novamente mais tarde.']);
         }
     }
-
-    public function search(Request $request) {
-        if ($request->all()) {
-            $produtos = Produto::where('local', '=', $request->input('local'))
-                            ->where('tipo_roupa', '=', $request->input('tipo_roupa'));
-            
-            $min = Produto::min('valor_diaria');
-            $max = Produto::max('valor_diaria');
-
-            return view('modulo_cliente.ecommerce.index', [
-                'produtos' => $produtos,
-                'min' => $min,
-                'max' => $max
-            ]);
-        } else {
-            $produtos = Produto::all();
-
-            $min = Produto::min('valor_diaria');
-            $max = Produto::max('valor_diaria');
-
-            return view('modulo_cliente.ecommerce.index', [
-                'produtos' => $produtos,
-                'max' => $max,
-                'min' => $min
-            ]);
-        }
-    }
 }

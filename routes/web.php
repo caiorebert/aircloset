@@ -30,8 +30,8 @@ Route::prefix('/')->group(function(){
 });
 
 Route::prefix('/search')->group(function(){
-    Route::post('/', [IndexController::class, 'search'])->name('search');
-    Route::get('/', [IndexController::class, 'search'])->name('search');
+    Route::post('/', [EcommerceController::class, 'search'])->name('search');
+    Route::get('/', [EcommerceController::class, 'search'])->name('search');
 });
 
 Route::prefix('/produto')->group(function(){
