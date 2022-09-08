@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cupom;
+use App\Models\CupomUser;
 
 class UserController extends Controller
 {
@@ -34,7 +36,19 @@ class UserController extends Controller
         }
     }
 
-    public function carrinho(){
-        return view('modulo_cliente.usuario.carrinho');
+    public function getCupons(){
+        $cupons = CupomUser::where('user_id', auth()->user()->id)
+                            ->join('cupom as c', 'c.id', '=', 'cupomuser.cupom_id')
+                            ->get();
+        return $cupons;
+    }
+
+    public function listCupons(){
+        $cupons = CupomUser::where('user_id', auth()->user()->id)
+                            ->join('cupons as c', 'c.id', '=', 'cupomuser.cupom_id')
+                            ->get();
+        return view('modulo_cliente.usuario.cupom.index', [
+            'cupons' => $cupons
+        ]);
     }
 }

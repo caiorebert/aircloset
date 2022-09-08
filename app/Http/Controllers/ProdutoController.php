@@ -24,8 +24,18 @@ class ProdutoController extends Controller
         ]);
     }
 
-    public function adiciona_carrinho($id_produto){
-
-        // return redirect()->route('carrinho');
+    public function calcula_valor_diarias(Request $request){
+        $id = $request->input('id');
+        $produto = Produto::find($id)->get()[0];
+        $values = $request->input('values');
+        $checkin = strtotime($values[0]['value']);
+        $checkout = strtotime($values[1]['value']);
+        $diarias = floor(($checkout - $checkin) / (60 * 60 * 24));
+        $return = [
+            'diarias' => $diarias,
+            'valor_diaria' => number_format($produto->valor_diaria, 2, ',', '.'),
+            'valortotal' => number_format($diarias * $produto->valor_diaria, 2, ',', '.')
+        ];
+        return $return;
     }
 }

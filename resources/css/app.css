@@ -20,6 +20,19 @@ hr {
     background-color: white !important;
 }
 
+.btn-outline-primary-aircloset {
+    color: #2d4373;
+    border: 1px solid #2d4373 !important;
+    
+}
+
+.btn-outline-primary-aircloset:hover {
+    color: white;
+    background-color: #2d4373 !important;
+    border: 1px solid #2d4373 !important;
+}
+
+
 .text-primary-aircloset {
     color: #2d4373 !important;
 }

@@ -23,13 +23,13 @@
         <div class="col-md-8">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="dados-tab" data-toggle="tab" data-target="#dados" type="button" role="tab" aria-controls="dados" aria-selected="true">Meus Dados</button>
+                    <button class="nav-link active" id="dados-tab" data-bs-toggle="tab" data-bs-target="#dados" type="button" role="tab" aria-controls="dados" aria-selected="true">Meus Dados</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="enderecos-tab" data-toggle="tab" data-target="#enderecos" type="button" role="tab" aria-controls="enderecos" aria-selected="false">Meus Endereços</button>
+                    <button class="nav-link" id="enderecos-tab" data-bs-toggle="tab" data-bs-target="#enderecos" type="button" role="tab" aria-controls="enderecos" aria-selected="false">Meus Endereços</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pedidos-tab" data-toggle="tab" data-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="false">Meus Pedidos</button>
+                    <button class="nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="false">Meus Pedidos</button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">

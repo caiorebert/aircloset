@@ -65,7 +65,7 @@
                             <a href="https://blog.aircloset.com.br/" class="nav-link text"><b>Blog</b></a>
                         </li>
                         <li class="nav-item">
-                            <a href="seja-franqueado" class="nav-link text"><b>Seja um franqueado</b></a>
+                            <a href="{{ route('seja-franqueado') }}" class="nav-link text"><b>Seja um franqueado</b></a>
                         </li>
                         @if(auth()->check())
                             <li class="nav-item">
