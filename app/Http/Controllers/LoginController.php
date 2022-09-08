@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     
-    public function index(){
+    public function index(Request $request){
         if (!Auth::check()) {
             return view("login.index");
         } else {

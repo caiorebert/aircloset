@@ -17,16 +17,49 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function(){
     Route::get('/', [IndexController::class, 'index'])->name("index");
-    Route::get('/seja-franqueado', [IndexController::class, 'indexFranqueado'])->name("seja-franqueado");
-    Route::get('/contato', [IndexController::class, 'contato'])->name("contato");
-    Route::get('/cadastro', [CadastroController::class, 'index'])->name("cadastro");
-    Route::post('/cadastro', [CadastroController::class, 'cadastrar'])->name("cadastro");
-    Route::get('/cadastrar-franqueado', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
-    Route::get('/login', [LoginController::class, 'index'])->name("page_login");
-    Route::get('/login', [LoginController::class, 'index'])->name("login");
-    Route::post('/login', [LoginController::class, 'logar'])->name("logar");
+
+    // CADASTRO
+
+    Route::prefix('/')->group(function(){
+        Route::get('/cadastro', [CadastroController::class, 'index'])->name("cadastro");
+        Route::post('/cadastro', [CadastroController::class, 'cadastrar'])->name("cadastro");
+    });
+
+    //--------------------------------------------------------
+
+    // FRANQUEADO
+
+    Route::prefix('/franqueado')->group(function(){
+        Route::get('/sejaum', [IndexController::class, 'indexFranqueado'])->name("seja-franqueado");
+        Route::get('/cadastre-se', [IndexController::class, 'cadastrarFranqueado'])->name("cadastrar-franqueado");
+    });
+
+    //--------------------------------------------------------
+
+    // LOGIN
+
+    Route::prefix('/login')->group(function(){
+        Route::get('/', [LoginController::class, 'index'])->name("page_login");
+        Route::get('/', [LoginController::class, 'index'])->name("login");
+        Route::post('/', [LoginController::class, 'logar'])->name("logar");
+    });
+
+    //--------------------------------------------------------
+
+    // LOGOUT
+
     Route::get('/logout', [LoginController::class, 'logout'])->name("deslogar");
-    Route::post('/sendMessage', [IndexController::class, 'sendMessage'])->name("sendMessage");
+
+    //--------------------------------------------------------
+
+    // CONTATO
+
+    Route::prefix('/contato')->group(function(){
+        Route::get('/', [IndexController::class, 'contato'])->name("contato");
+        Route::post('/sendMessage', [IndexController::class, 'sendMessage'])->name("sendMessage");
+    });
+
+    //--------------------------------------------------------
 });
 
 Route::prefix('/search')->group(function(){
@@ -36,14 +69,20 @@ Route::prefix('/search')->group(function(){
 
 Route::prefix('/produto')->group(function(){
     Route::get('/{id_produto}', [ProdutoController::class, 'index'])->name("produto");
+    Route::post('/calcula-valor-diarias', [ProdutoController::class, 'calcula_valor_diarias'])->middleware('auth')->name('calcula_valor_diarias');
 });
+
+// USER
 
 Route::prefix('/user')->group(function(){
     Route::get('/atualizar-dados', [UserController::class, 'atualizarDados'])->middleware('auth')->name("atualizarDados");
     Route::post('/atualizar-dados', [UserController::class, 'updateDados'])->middleware('auth')->name("updateDados");
-});
+    Route::get('/meus-cupons', [UserController::class, 'listCupons'])->middleware('auth')->name("meus-cupons");
 
-Route::prefix('/user/carrinho')->group(function(){
-    Route::get('/', [UserController::class, 'carrinho'])->middleware('auth')->name("carrinho");
-    Route::get('/adiciona_carrinho/{id_produto}', [ProdutoController::class, 'adiciona_carrinho'])->name('adiciona_carrinho');
+    // Carrinho
+    Route::prefix('/carrinho')->group(function(){
+        Route::get('/', [CarrinhoController::class, 'index'])->middleware('auth')->name("carrinho");
+        Route::post('/adiciona-carrinho', [CarrinhoController::class, 'adiciona_carrinho'])->middleware('auth')->name('adiciona-produto');
+        Route::post('/remove-carrinho', [CarrinhoController::class, 'remove_carrinho'])->middleware('auth')->name('remove-produto');
+    });
 });

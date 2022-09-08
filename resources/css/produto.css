@@ -37,3 +37,12 @@
     position: relative;
     width: auto;
 }
+
+.alerts {
+    position: fixed;
+    z-index: 0;
+    margin: auto;
+    width: 40vw;
+    bottom: 1vh;
+    right: 10px;
+}
