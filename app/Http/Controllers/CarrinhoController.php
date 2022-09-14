@@ -6,30 +6,38 @@ use Illuminate\Http\Request;
 use App\Models\Carrinho;
 use App\Models\Produto;
 use App\Models\ProdutosCarrinho;
+use App\Models\CupomUser;
+use App\Models\Cupom;
 use ProdutoController;
 
 class CarrinhoController extends Controller
 {
     
     public function index(){
-        $produtoscarrinho = Carrinho::selectRaw("*,
-                                                pc.id as produtocarrinhoid,
-                                                DATE_FORMAT(pc.checkin, '%d/%m/%Y') as checkin_formatado,
-                                                DATE_FORMAT(pc.checkin, '%h:%i') as horain_formatado,
-                                                DATE_FORMAT(pc.checkout, '%d/%m/%Y') as checkout_formatado,
-                                                DATE_FORMAT(pc.checkout, '%d:%i') as horaout_formatado")
-                                        ->join('produtoscarrinho as pc', 'pc.carrinho_id', '=', 'carrinho.user_id')
-                                        ->join('produtos as p', 'p.id', '=', 'pc.produto_id')
-                                        ->join('tamanhos as t', 't.id', '=', 'pc.tamanho')
-                                        ->where('carrinho.user_id', '=', auth()->user()->id)
-                                        ->whereRaw("pc.deleted_at is null")
+        $carrinho = Carrinho::select('*','cp.nome as cupom_nome')->where('carrinho.user_id', '=', auth()->user()->id)
+                        ->leftjoin('cupons as cp', 'cp.id', '=', 'carrinho.cupom_id')
+                        ->get()[0];
+        $produtoscarrinho = ProdutosCarrinho::selectRaw("*,
+                                                produtoscarrinho.id as produtocarrinhoid,
+                                                DATE_FORMAT(produtoscarrinho.checkin, '%d/%m/%Y') as checkin_formatado,
+                                                DATE_FORMAT(produtoscarrinho.checkin, '%h:%i') as horain_formatado,
+                                                DATE_FORMAT(produtoscarrinho.checkout, '%d/%m/%Y') as checkout_formatado,
+                                                DATE_FORMAT(produtoscarrinho.checkout, '%d:%i') as horaout_formatado")
+                                        ->join('carrinho as c', 'c.id', '=', 'produtoscarrinho.carrinho_id')
+                                        ->join('produtos as p', 'p.id', '=', 'produtoscarrinho.produto_id')
+                                        ->join('tamanhos as t', 't.id', '=', 'produtoscarrinho.tamanho')
+                                        ->where('c.user_id', '=', auth()->user()->id)
+                                        ->whereRaw("produtoscarrinho.deleted_at is null")
                                         ->get();
         $taxas = array_sum(array_column($produtoscarrinho->toArray(), 'taxalimpeza'));
         $valortotalcarrinho = array_sum(array_column($produtoscarrinho->toArray(), 'valortotal'));
+        $cupons = CupomUser::join('cupons as c', 'c.id', '=', 'cupomuser.cupom_id')->where('user_id', auth()->user()->id)->get();
         return view('modulo_cliente.usuario.carrinho.index', [
             'produtos' => $produtoscarrinho,
+            'carrinho' => $carrinho,
             'taxalimpeza' => $taxas,
-            'valortotalcarrinho' => $valortotalcarrinho
+            'valortotalcarrinho' => $valortotalcarrinho,
+            'cupons' => $cupons
         ]);
     }
 
@@ -38,8 +46,12 @@ class CarrinhoController extends Controller
         
         $produtoscarrinho = new ProdutosCarrinho();
         
-        $carrinho_id = Carrinho::select('id')->where('user_id', '=', auth()->user()->id)->get()[0]['id'];
+        $carrinho = Carrinho::where('user_id', '=', auth()->user()->id)->get()[0];
         
+        $cupom = Cupom::find($carrinho->cupom_id);
+
+        $carrinho_id = $carrinho->id;
+
         $informs = $request->input('values');
         
         if ($informs != "") {
@@ -55,12 +67,18 @@ class CarrinhoController extends Controller
             $produtoscarrinho->diarias = $valores['diarias'];
             $produtoscarrinho->valortotal = substr($valores['valortotal'], 0, -3);
             $produtoscarrinho->taxalimpeza = 15;
-            $produtoscarrinho->valordesconto = 25;
             $produtoscarrinho->checkin = $informs[0]['value'] . " " . $informs[2]['value'] . ":00";
             $produtoscarrinho->checkout = $informs[1]['value'] . " " . $informs[3]['value'] . ":00";
-            $produtoscarrinho->valordesconto = 25;
             if ($produtoscarrinho->save()) {
-                return ['status' => true, 'data' => '<b>Produto adicionado com sucesso!</b> Para ir até o carrinho, <a href="' .  route('carrinho') . '">clique aqui.</a>'];
+                $carrinho = Carrinho::calculaProdutoValorCarrinho($carrinho, ($produtoscarrinho->valorpordiaria * $produtoscarrinho->diarias) + $produtoscarrinho->taxalimpeza, 1);
+                if ($carrinho->cupom_id) {
+                    $carrinho = Carrinho::calculaCupomValorCarrinho($carrinho, $cupom, 1);
+                }
+                if ($carrinho->save()) {
+                    return ['status' => true, 'data' => '<b>Produto adicionado com sucesso!</b> Para ir até o carrinho, <a href="' .  route('carrinho') . '">clique aqui.</a>'];
+                } else {
+                    return ['status' => false, 'data' => '<b>Erro ao adicionar produto!</b> Tente novamente mais tarde.'];
+                }
             } else {
                 return ['status' => false, 'data' => '<b>Erro ao adicionar produto!</b> Tente novamente mais tarde.'];
             };
@@ -72,8 +90,40 @@ class CarrinhoController extends Controller
 
     public function remove_carrinho(Request $request){
         $id = $request->input('id');
+        $carrinho = Carrinho::where('user_id', '=', auth()->user()->id)->get()[0];
+        $cupom = Cupom::find($carrinho->cupom_id);
+        $produtoscarrinho = ProdutosCarrinho::where('id', '=', $id)->get()[0];
+        $carrinho = Carrinho::calculaProdutoValorCarrinho($carrinho, ($produtoscarrinho->valorpordiaria * $produtoscarrinho->diarias) + $produtoscarrinho->taxalimpeza, 0);
+        if ($carrinho->cupom_id) {
+            $carrinho = Carrinho::calculaCupomValorCarrinho($carrinho, $cupom, 1);
+        }
+        $carrinho->save();
         $deleted = ProdutosCarrinho::whereNull('deleted_at')->where('id', '=', $id)->delete();
         return redirect()->route('carrinho');
+    }
+
+    public function aplica_cupom(Request $request) {
+        $id_cupom = 1;
+        $carrinho = Carrinho::where('user_id', '=', auth()->user()->id)->get()[0];
+        $cupom = Cupom::find($id_cupom);
+        $carrinho->cupom_id = $id_cupom;
+        $carrinho = Carrinho::calculaCupomValorCarrinho($carrinho, $cupom, 1);
+        if ($carrinho->save()) {
+            return ['status' => true, 'data' => $carrinho->valortotalcarrinho, 'message' => 'Cupom adicionado com sucesso!'];
+        } else {
+            return ['status' => false, 'data' => null, 'message' => 'Erro ao aplicar cupom!'];
+        }
+    }
+
+    public function remove_cupom(Request $request) {
+        $carrinho = Carrinho::where('user_id', '=', auth()->user()->id)->get()[0];
+        $carrinho->cupom_id = null;
+        $carrinho->valortotalcomdesconto = null;
+        if ($carrinho->save()) {
+            return ['status' => true, 'data' => $carrinho->valortotalcarrinho, 'message' => 'Cupom removido com sucesso!'];
+        } else {
+            return ['status' => false, 'data' => null, 'message' => 'Erro ao aplicar cupom!'];
+        }
     }
 
 }

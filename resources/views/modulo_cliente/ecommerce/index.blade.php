@@ -47,7 +47,13 @@
                 </div>
                 <hr>
                 <div class="row">
-
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input class="input-pesquisa form-control" type="text" name="search_ecommerce"
+                                placeholder="Busque por produtos, marcas..."/>
+                            <span class="input-group-text pt-2" id="basic-addon1"><i class="fa-solid fa-magnifying-glass pt-2"></i></span>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div class="row">
@@ -544,7 +550,7 @@
                 ]
             };
             $("#buscar").click(function(){
-                objFiltros.search = $("input[name='search']").val();
+                objFiltros.search = $("input[name='search_ecommerce']").val();
                 objFiltros.filtros[0].value = $("#max").val();
                 objFiltros.filtros[1].value = $("#min").val();
                 busca(objFiltros);

@@ -25,7 +25,7 @@
                     x
                 </label>
                 <b>
-                    R$ {{ number_format($produto->diarias, 2, ',', '.') }}
+                    {{ $produto->diarias }} diárias
                 </b>
             </div>
         </div>

@@ -84,5 +84,7 @@ Route::prefix('/user')->group(function(){
         Route::get('/', [CarrinhoController::class, 'index'])->middleware('auth')->name("carrinho");
         Route::post('/adiciona-carrinho', [CarrinhoController::class, 'adiciona_carrinho'])->middleware('auth')->name('adiciona-produto');
         Route::post('/remove-carrinho', [CarrinhoController::class, 'remove_carrinho'])->middleware('auth')->name('remove-produto');
+        Route::post('/aplica-cupom', [CarrinhoController::class, 'aplica_cupom'])->middleware('auth')->name('aplica-cupom');
+        Route::post('/remove-cupom', [CarrinhoController::class, 'remove_cupom'])->middleware('auth')->name('remove-cupom');
     });
 });

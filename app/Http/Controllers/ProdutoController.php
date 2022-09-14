@@ -38,4 +38,5 @@ class ProdutoController extends Controller
         ];
         return $return;
     }
+
 }

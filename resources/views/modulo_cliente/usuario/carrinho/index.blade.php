@@ -33,6 +33,37 @@
             <h6>Resumo do pedido</h6>
             <hr>
             <div class="row">
+                @if($carrinho->cupom_id)
+                <div class="col-md-12">
+                    <h6>Cupom aplicado:</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <label>{{ $carrinho->cupom_nome }}</label>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <button class="btn btn-danger" id="removeCupom"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                @else
+                <div class="col-md-12">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary-aircloset" data-bs-toggle="modal" data-bs-target="#modalCupons">
+                    Meus Cupons <i class="fas fa-ticket"></i>
+                    </button>
+                    @include('modulo_cliente.usuario.carrinho.partials.modal_cupons', $cupons)
+                    <hr>
+                </div>
+                @endif
+            </div>
+            <div class="row">
                 <div class="col-md-9">
                     <h6>Taxa de higienização</h6>
                 </div>
@@ -48,7 +79,7 @@
                 </div>
                 <div class="col-md-5 text-right">
                     <label>
-                        (R$ {{ number_format($valortotalcarrinho, 2, ',', '.') }})
+                        (R$ {{ number_format($valortotalcarrinho + $taxalimpeza, 2, ',', '.') }})
                     </label>
                     <br>
                     <label>
@@ -95,6 +126,16 @@
         $(".remove-produto").click(function(){
             var id = $(this).attr("id");
             $.post("{{ route('remove-produto') }}", { '_token' : "{{ csrf_token() }}", 'id' : id }, function(response){
+                document.location.reload(true);
+            }); 
+        });
+        $("#removeCupom").click(function(){
+            $.post("{{ route('remove-cupom') }}", { '_token' : "{{ csrf_token() }}" }, function(response){
+                document.location.reload(true);
+            }); 
+        });
+        $("#adicionaCupom").click(function(){
+            $.post("{{ route('aplica-cupom') }}", { '_token' : "{{ csrf_token() }}" }, function(response){
                 document.location.reload(true);
             }); 
         });

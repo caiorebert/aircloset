@@ -28,35 +28,36 @@ class EcommerceController extends Controller
                     }
                 });
                 $return = "";
-                
-                foreach ($objSearch->get()->toArray() as $key => $produto) {
-                    $return .= '
-                    <li class="produto">
-                        <a href="' . route('produto', $produto['id']) . '" >
-                            <div class="produto-img">
-                                <img src="' . $produto['thumb'] . '"/>
-                            </div>
-                            <div class="produto-descricao">
-                                <table style="width:100%; text-align:center;">
-                                    <tr>
-                                        <td>
-                                            <h6 class="mt-3">'.
-                                                $produto['nome']
-                                            .'</h6>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            R$ a diária
-                                        </td>
-                                    </tr>
-                                </table>    
-                            </div>
-                        </a>
-                    </li>';
+                $produtos = $objSearch->get()->toArray();
+                if (count($produtos) > 0) {
+                    foreach ($produtos as $key => $produto) {
+                        $return .= '
+                        <li class="produto">
+                            <a href="' . route('produto', $produto['id']) . '" >
+                                <div class="produto-img">
+                                    <img src="' . $produto['thumb'] . '"/>
+                                </div>
+                                <div class="produto-descricao">
+                                    <table style="width:100%; text-align:center;">
+                                        <tr>
+                                            <td>
+                                                <h6 class="mt-3">'.
+                                                    $produto['nome']
+                                                .'</h6>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                R$ a diária
+                                            </td>
+                                        </tr>
+                                    </table>    
+                                </div>
+                            </a>
+                        </li>';
+                    }
                 }
-
-                print_r($return);
+                return $return;
             } else {
                 $produtos = Produto::all();
 
