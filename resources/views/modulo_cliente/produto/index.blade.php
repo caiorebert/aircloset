@@ -102,7 +102,11 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-11 text-center">
-                            <a class="btn btn-primary-aircloset" id="adiciona-carrinho" data-id="{{ $produto->id }}">RESERVAR</a>
+                            @if(Auth::check())
+                                <a class="btn btn-primary-aircloset" id="adiciona-carrinho" data-id="{{ $produto->id }}">RESERVAR</a>
+                            @else
+                                <a class="btn btn-primary-aircloset" href="{{ route('login') }}">RESERVAR</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -268,11 +272,17 @@
                     if (response.status) {
                         $("#success #text").html(response.data);
                         $("#success").addClass("show");
-                    } else {
+                    } else if (response.status==false){
+                        alert(2);
                         $("#error #text").html(response.data);
                         $("#error").addClass("show");
+                    } else if (response.message == "Unauthenticated.") {
+                        alert(1);
+                        window.location.href="{{route('login')}}";
                     }
+                    return true;
                 });
+                console.log(1);
             });
         });
     </script>
