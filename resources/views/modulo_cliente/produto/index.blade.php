@@ -277,7 +277,6 @@
                         $("#error #text").html(response.data);
                         $("#error").addClass("show");
                     } else if (response.message == "Unauthenticated.") {
-                        alert(1);
                         window.location.href="{{route('login')}}";
                     }
                     return true;

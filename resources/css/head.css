@@ -1,6 +1,8 @@
 nav {
     background: rgba(245,245,245,.5);
 }
+#notificationCount {
+}
 @media screen and (min-width:800px) {
     nav .desktop {
         /* display: inline-block; */
