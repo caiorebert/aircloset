@@ -86,5 +86,6 @@ Route::prefix('/user')->group(function(){
         Route::post('/remove-carrinho', [CarrinhoController::class, 'remove_carrinho'])->middleware('auth')->name('remove-produto');
         Route::post('/aplica-cupom', [CarrinhoController::class, 'aplica_cupom'])->middleware('auth')->name('aplica-cupom');
         Route::post('/remove-cupom', [CarrinhoController::class, 'remove_cupom'])->middleware('auth')->name('remove-cupom');
+        Route::post('/count-produtos', [CarrinhoController::class, 'count_produtos'])->middleware('auth')->name('count-produtos');
     });
 });

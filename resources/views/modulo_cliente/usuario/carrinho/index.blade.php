@@ -72,20 +72,53 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7">
-                    <label>
-                        Total
-                    </label>
-                </div>
-                <div class="col-md-5 text-right">
-                    <label>
-                        (R$ {{ number_format($valortotalcarrinho + $taxalimpeza, 2, ',', '.') }})
-                    </label>
-                    <br>
-                    <label>
-                        em até 3x de R$ 30,00
-                    </label>
-                </div>
+                @if($carrinho->cupom_id) 
+                    <div class="col-md-7">
+                        <label>
+                            <s>
+                    
+                            </s>
+                        </label>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <label>
+                            <s>(R$ {{ number_format($valortotalcarrinho + $taxalimpeza, 2, ',', '.') }})</s>
+                        </label>
+                        <br>
+                        <label>
+                            <s><b>em até 3x de R$ {{ number_format(($valortotalcarrinho + $taxalimpeza) / 3, 2, ',', '.') }}</b></s>
+                        </label>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-md-7">
+                            <label>Total com desconto</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label>
+                                (R$ {{ number_format($carrinho->valortotalcomdesconto + $taxalimpeza, 2, ',', '.') }})
+                            </label>
+                            <br>
+                            <label>
+                                em até 3x de R$ {{ number_format(($carrinho->valortotalcomdesconto + $taxalimpeza) / 3, 2, ',', '.') }}
+                            </label>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-7">
+                        <label>
+                            Total
+                        </label>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <label>
+                            (R$ {{ number_format($valortotalcarrinho + $taxalimpeza, 2, ',', '.') }})
+                        </label>
+                        <br>
+                        <label>
+                            em até 3x de R$ {{ number_format(($valortotalcarrinho + $taxalimpeza) / 3, 2, ',', '.') }}
+                        </label>
+                    </div>
+                @endif
             </div>
             <div class="row">
                 <div class="col-md-12">

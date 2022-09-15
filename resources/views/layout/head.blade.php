@@ -108,6 +108,7 @@
                     </a>
                     <a class="btn btn-primary-aircloset" href="{{ route('carrinho') }}" style="height: auto;">
                         <i class="fas fa-shopping-cart"></i>
+                        <span id="notificationCount"></span>
                     </a>
                     <a class="btn btn-primary-aircloset" href="{{ route('meus-cupons') }}" style="height: auto;">
                         <i class="fas fa-ticket"></i>
@@ -140,6 +141,11 @@
 
 @include('login.partials.modal_login')
 <script>
+    function countProdutos(){
+        $.post("{{ route('count-produtos') }}", { '_token' : '{{ csrf_token() }}' }, function(response){
+            $("#notificationCount").html(response);
+        });
+    }
     $(function () {
         $("#collapse-menu").click(function () {
             $(".menu").toggleClass("expanded");
@@ -149,6 +155,7 @@
             $(".menu").toggleClass("expanded");
             $(".menu .button-close").toggleClass("d-none");
         });
+        countProdutos();
     });
 
 </script>

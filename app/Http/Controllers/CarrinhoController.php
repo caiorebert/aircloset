@@ -70,7 +70,7 @@ class CarrinhoController extends Controller
             $produtoscarrinho->checkin = $informs[0]['value'] . " " . $informs[2]['value'] . ":00";
             $produtoscarrinho->checkout = $informs[1]['value'] . " " . $informs[3]['value'] . ":00";
             if ($produtoscarrinho->save()) {
-                $carrinho = Carrinho::calculaProdutoValorCarrinho($carrinho, ($produtoscarrinho->valorpordiaria * $produtoscarrinho->diarias) + $produtoscarrinho->taxalimpeza, 1);
+                $carrinho = Carrinho::calculaProdutoValorCarrinho($carrinho, $produtoscarrinho->valorpordiaria * $produtoscarrinho->diarias, 1);
                 if ($carrinho->cupom_id) {
                     $carrinho = Carrinho::calculaCupomValorCarrinho($carrinho, $cupom, 1);
                 }
@@ -126,4 +126,9 @@ class CarrinhoController extends Controller
         }
     }
 
+    public function count_produtos(){
+        $carrinho = Carrinho::where('user_id', '=', auth()->user()->id)->whereNull('deleted_at')->get()[0];
+        $produtos = ProdutosCarrinho::where('carrinho_id', '=', $carrinho->id)->get();
+        return $produtos->count('id');
+    }
 }
