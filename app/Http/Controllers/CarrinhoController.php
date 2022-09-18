@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Carrinho;
 use App\Models\Produto;
 use App\Models\ProdutosCarrinho;
@@ -31,7 +32,12 @@ class CarrinhoController extends Controller
                                         ->get();
         $taxas = array_sum(array_column($produtoscarrinho->toArray(), 'taxalimpeza'));
         $valortotalcarrinho = array_sum(array_column($produtoscarrinho->toArray(), 'valortotal'));
-        $cupons = CupomUser::join('cupons as c', 'c.id', '=', 'cupomuser.cupom_id')->where('user_id', auth()->user()->id)->get();
+        $date_atual = date('Y-m-d');
+        $cupons = CupomUser::selectRaw("*, DATE_FORMAT(c.data_validade, '%d/%m/%Y') as data_validade")
+                            ->join('cupons as c', 'c.id', '=', 'cupomuser.cupom_id')
+                            ->where('cupomuser.user_id', auth()->user()->id)
+                            ->where('c.data_validade', '>', $date_atual)
+                            ->get();
         return view('modulo_cliente.usuario.carrinho.index', [
             'produtos' => $produtoscarrinho,
             'carrinho' => $carrinho,
