@@ -20,6 +20,7 @@
                                     <h4>
                                       {{ $cupom->nome }}
                                     </h4>
+                                    <label style="font-size: 0.9em">Expira em: {{ $cupom->data_validade }}</label>
                                   </td>
                                   <td style="text-align: right;">
                                     <button id="adicionaCupom" class="btn btn-primary-aircloset" data-id="{{ $cupom->id }}">
