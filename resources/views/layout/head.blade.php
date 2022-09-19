@@ -1,3 +1,4 @@
+@include('login.partials.modal_login')
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="row mobile">
         <div class="col-md-12">
@@ -126,7 +127,7 @@
                             <a class="nav-link" href="{{ route('cadastro') }}">Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Entrar</a>
+                            <a class="nav-link" href="{{ route('login') }}">Entrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-comment"></i></a>
@@ -138,8 +139,6 @@
         </div>
     </div>
 </nav>
-
-@include('login.partials.modal_login')
 <script>
     function countProdutos(){
         $.post("{{ route('count-produtos') }}", { '_token' : '{{ csrf_token() }}' }, function(response){

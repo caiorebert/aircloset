@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-1">
             </div>  
-            <div class="col-md-2">
+            <div class="col-md-3 div-filtros">
                 <div class="row">
                     <div class="col-md-12">
                         <h6>Filtros</h6>
@@ -486,7 +486,7 @@
                     </div>
                 </div>
             </div>  
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <ul class="produtos" style="list-style:none; text-align:center;">
                 @foreach($produtos as $produto)
                     <li class="produto">

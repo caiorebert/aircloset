@@ -96,7 +96,9 @@
                     <form id="form-search" action="{{ route('search') }}" method="post">
                         <div class="form-row p-4">
                             @csrf
-                            <div class="col-sm-12 col-md-4 col-lg-3 mt-1">
+                            <div class="col-lg-2 mt-1"></div>
+                            
+                            <div class="col-lg-3 mt-1">
                                 <select class="form-control" name="tipo_roupa" required="true">
                                     <option>Todos</option>
                                     <option>Casacos</option>
@@ -108,25 +110,18 @@
                                 </select>
                             </div>
 
-                            <div class="col-sm-12 col-md-4 col-lg-3 mt-1">
+                            <div class="col-lg-3 mt-1">
                                 <select class="form-control" name="local" required="true">
                                     <option>Gramado - RS</option>
                                     <option>Campos do Jordão - SP</option>
                                 </select>
                             </div>
 
-                            <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input type="date" class="form-control" id="checkin" name="checkin" required="true">
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
-                                <input type="date" class="form-control" id="checkout" name="checkout" required="true">
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-2 mt-1">
+                            <div class="col-lg-2 mt-1">
                                 <input id="bt-search" type="submit" value="BUSCAR" class="btn btn-primary-aircloset btn-block"/>
                             </div>
 
+                            <div class="col-lg-2 mt-1"></div>
                         </div>
                     </form>
                 </div>
