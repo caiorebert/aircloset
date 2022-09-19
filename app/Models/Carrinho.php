@@ -16,7 +16,11 @@ class Carrinho extends Model
         if ($op==1){
             $c->valortotalcarrinho += $valor;
         } else {
-            $c->valortotalcarrinho -= $valor;
+            if ($c->valortotalcarrinho - $valor > 0) {
+                $c->valortotalcarrinho -= $valor;
+            } else {
+                $c->valortotalcarrinho = 0;
+            }
         }
         return $c;
     }
@@ -30,7 +34,11 @@ class Carrinho extends Model
             } else {
                 $new_total = $total - $c->desconto;
             }
-            $c->valortotalcomdesconto = $total - $new_total;
+            if ($total == 0) {
+                $c->valortotalcomdesconto = 0;
+            } else {
+                $c->valortotalcomdesconto = $total - $new_total;
+            }
         }
         return $c;
     }
