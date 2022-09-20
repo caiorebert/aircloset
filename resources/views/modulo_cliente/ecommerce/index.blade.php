@@ -26,10 +26,23 @@
             </div>
             <div class="col-lg-1"></div>
         </div>  
+        <div class="row div-toggle-filtros ps-3 mb-3">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-11">
+                <button class="btn btn-primary-aircloset toggleFiltros">FILTROS</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-1">
             </div>  
             <div class="col-md-3 div-filtros">
+                <div class="row close-filtros">
+                    <div class="col-md-12" style="text-align:right;">
+                        <button class="btn toggleFiltros">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <h6>Filtros</h6>
@@ -505,7 +518,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            R$ {{ $produto->valor_diaria }} a diária
+                                            R${{ number_format($produto->valor_diaria, 2, ',', '.') }} a diária
                                         </td>
                                     </tr>
                                 </table>    
@@ -550,6 +563,7 @@
                 ]
             };
             $("#buscar").click(function(){
+                $(".div-filtros").removeClass('expanded');
                 objFiltros.search = $("input[name='search_ecommerce']").val();
                 objFiltros.filtros[0].value = $("#max").val();
                 objFiltros.filtros[1].value = $("#min").val();
@@ -581,7 +595,10 @@
             $("#limpa-filtros").click(function(){
                 objFiltros.filtros = [];
                 $(".filtros").attr("selected", false);
-            }); 
+            });
+            $(".toggleFiltros").click(function(){
+                $(".div-filtros").toggleClass('expanded');
+            });
         });
     </script>
 @endsection

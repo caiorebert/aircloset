@@ -48,7 +48,7 @@ class EcommerceController extends Controller
                                         </tr>
                                         <tr>
                                             <td>
-                                                R$ a diária
+                                                R$'.  number_format($produto['valor_diaria'], 2, ',', '.') .' a diária
                                             </td>
                                         </tr>
                                     </table>    
