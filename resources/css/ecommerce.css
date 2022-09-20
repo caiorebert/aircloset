@@ -25,14 +25,37 @@
 
 @media screen and (max-width:800px) {
     .div-filtros {
-        height: 75vh;
+        position: fixed;
+        margin: auto;
+        width: 100vw;
+        z-index: 50;
+        top: 0;
+        transition: .1s linear;
+        background-color: white;
+        height: 100vh;
         overflow-y: scroll;
+        left: -100vw;
+    }
+    .div-filtros.expanded {
+        left: 0px !important;
+    }
+    .close-filtros {
+        display: block;
+    }
+    .div-toggle-filtros {
+        display: block;
     }
 }
 
 @media screen and (min-width:800px) {
+    .close-filtros {
+        display: none;
+    }
     .div-filtros {
         height: 75vh;
         overflow-y: scroll;
+    }
+    .div-toggle-filtros {
+        display: none;
     }
 }

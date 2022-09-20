@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Carrinho;
 
 class CadastroController extends Controller
 {
@@ -47,10 +48,14 @@ class CadastroController extends Controller
             $user->cpf = str_replace(['-', '.', '(', ')'], '', trim($request->input('cpf')));
             $user->nivel_acesso = 1;
             if ($user->save()) {
-                if (Auth::loginUsingId($user->id)){
-                    return redirect()->route('index');
-                } else {
-                    return redirect()->route('index');
+                $carrinho = new Carrinho();
+                $carrinho->user_id = $user->id; 
+                if ($carrinho->save()) {
+                    if (Auth::loginUsingId($user->id)){
+                        return redirect()->route('index');
+                    } else {
+                        return redirect()->route('index');
+                    }
                 }
             }
         } else {
