@@ -89,3 +89,7 @@ Route::prefix('/user')->group(function(){
         Route::post('/count-produtos', [CarrinhoController::class, 'count_produtos'])->middleware('auth')->name('count-produtos');
     });
 });
+
+Route::prefix('/admin')->group(function(){
+    Route::get('/', [AdminController::class, 'index'])->name("index-admin");
+});
