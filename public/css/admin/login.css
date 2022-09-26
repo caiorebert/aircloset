@@ -1,0 +1,16 @@
+.div-form {
+    position: absolute;
+    margin: auto;
+    left: 10%;
+    right: 10%;
+    top: 30%;
+    bottom: 30%;
+    padding: 15px;
+    box-shadow: 0.5px 0.5px 5px rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border-bottom: 30px solid #2d4373;
+}   
+
+.form {
+    position: relative;
+}

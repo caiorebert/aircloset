@@ -1,0 +1,9 @@
+.div-form {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 30%;
+    bottom: 30%;
+    background-color: red;
+}

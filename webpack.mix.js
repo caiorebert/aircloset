@@ -37,3 +37,7 @@ mix.postCss('resources/css/ecommerce.css', 'public/css', [
 mix.postCss('resources/css/produto.css', 'public/css', [
     //
 ]);
+
+mix.postCss('resources/css/admin/login.css', 'public/css/admin', [
+    //
+]);
